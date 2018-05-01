@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1.5
+  stock_level: 1
+  description: MyText
+  category: one
+  store: one
+
+two:
+  price: 1.5
+  stock_level: 1
+  description: MyText
+  category: two
+  store: two

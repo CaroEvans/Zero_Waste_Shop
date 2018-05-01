@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Zero</title>
+    <title>Pickle Jar</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <div class="container">
+      <% if user_signed_in? %>
+    <p>Logged in as: <%= current_user.email %></p>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% else %>
+    <p>You are not logged in!</P>
+      <%= link_to('Login', new_user_session_path)  %>
+
+    <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
   </body>
 </html>
