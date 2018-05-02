@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :check_user, only: [:edit, :update, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -16,7 +15,12 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    if current_user.has_role? :admin or current_user.has_role? :owner
+        @pproduct = Product.new
+      else
+        flash[:notice] = "You are not authorized"
+        redirect_to products_path
+      end
   end
 
   # GET /products/1/edit
@@ -27,6 +31,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.user = current_user
 
     respond_to do |format|
       if @product.save
@@ -37,6 +42,7 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /products/1
@@ -71,6 +77,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:price, :stock_level, :description, :category_id, :store_id)
+      params.require(:product).permit(:name, :price, :stock_level, :description, :category_id, :store_id)
     end
 end

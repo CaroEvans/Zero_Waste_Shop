@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Product.create([
-{name: 'Jar of Pickles', price: 10, stock_level: 20, description: 'Homemade Dill Pickles. Ingredients: cucumbers, dill, vinegar'}
-  ])
+Location.create([{ city: 'Windsor', state: 'QLD', country:'Australia', post_code:'4030'}])
+
+User.create([{ email: 'bill@billspickles.com.au', password: 'password123'}])

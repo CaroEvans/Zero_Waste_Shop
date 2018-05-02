@@ -1669,3 +1669,977 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 70ms (Views: 60.1ms | ActiveRecord: 4.2ms)
 
 
+Started GET "/profiles" for 127.0.0.1 at 2018-05-01 17:00:01 +1000
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 59ms (Views: 50.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/profiles/new" for 127.0.0.1 at 2018-05-01 17:00:04 +1000
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/_form.html.erb (5.2ms)
+  Rendered profiles/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 66ms (Views: 36.9ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2018-05-01 17:00:34 +1000
+Processing by ProfilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vYnWOeEloXZCputrcYFvXZdH6xYs9t7eR3Gm240oshfrkJVq9/pu2vtSK6ty5/vj+VqofahXT2kGHvSvCC3H9g==", "profile"=>{"first_name"=>"Caro", "last_name"=>"Evans", "email"=>"caroline.w.evans@gmail.com", "street_address"=>"25 Brickfield Street", "location_id"=>"Windsor", "phone_number"=>"438810983", "bio"=>"Pickle lover", "user_id"=>"1"}, "commit"=>"Create Profile"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Load (1.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/_form.html.erb (3.7ms)
+  Rendered profiles/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 83ms (Views: 35.2ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-01 17:06:56 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (1.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 47ms (Views: 40.5ms | ActiveRecord: 1.7ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "post_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["city", "Windsor"], ["state", "QLD"], ["country", "Australia"], ["post_code", "4030"], ["created_at", "2018-05-01 07:08:06.463869"], ["updated_at", "2018-05-01 07:08:06.463869"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "post_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["city", "Windsor"], ["state", "QLD"], ["country", "Australia"], ["post_code", "4030"], ["created_at", "2018-05-01 07:09:35.392854"], ["updated_at", "2018-05-01 07:09:35.392854"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "post_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["city", "Windsor"], ["state", "QLD"], ["country", "Australia"], ["post_code", "4030"], ["created_at", "2018-05-01 07:10:53.650850"], ["updated_at", "2018-05-01 07:10:53.650850"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "post_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["city", "Windsor"], ["state", "QLD"], ["country", "Australia"], ["post_code", "4030"], ["created_at", "2018-05-01 07:11:57.114465"], ["updated_at", "2018-05-01 07:11:57.114465"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/products" for 127.0.0.1 at 2018-05-01 17:21:37 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 334ms (Views: 309.0ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-05-01 17:21:39 +1000
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (27.9ms)
+  Rendered products/new.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 87ms (Views: 52.4ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-05-01 17:22:31 +1000
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (2.9ms)
+  Rendered products/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 39ms (Views: 34.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/locations" for 127.0.0.1 at 2018-05-01 17:22:47 +1000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"locations"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=locations):
+  
+app/controllers/products_controller.rb:69:in `set_product'
+Started GET "/locations" for 127.0.0.1 at 2018-05-01 17:22:56 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (1.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 49ms (Views: 33.5ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-01 17:23:07 +1000
+Processing by StoresController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered stores/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 60ms (Views: 47.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-01 17:23:12 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 40ms (Views: 34.5ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/locations/4" for 127.0.0.1 at 2018-05-01 17:23:15 +1000
+Processing by LocationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FSAyyqeAG2u7+oAewfK3HwFG3rThjMqDU9d3K6MI2R+RJLOq+p/MGki3MuDHe1tKeJgXV3wrqSjXNRr6J1YZ4w==", "id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/locations
+Completed 302 Found in 8ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-01 17:23:15 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 28.4ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/locations/3" for 127.0.0.1 at 2018-05-01 17:24:02 +1000
+Processing by LocationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NqUmApv344v9hE2kJaCN6k9XwR+kzGQ2P8q6e7K6V7eyoadixug0+g7J/1ojKWG/NokI/DlrB527KNeqNuSXSw==", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/locations
+Completed 302 Found in 8ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-01 17:24:02 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 58ms (Views: 53.9ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/locations/2" for 127.0.0.1 at 2018-05-01 17:24:04 +1000
+Processing by LocationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"520rWKZBb4fkFkWvfNE7ghxiYd+OysdMYQCBexD3X+ljaao4+1649hdb91F6WNfXZbyoPBNtpOfl4uyqlKmfFQ==", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/locations
+Completed 302 Found in 9ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-01 17:24:04 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 28.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-01 17:24:31 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (3.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 50.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-05-01 17:24:34 +1000
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (5.0ms)
+  Rendered products/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 54ms (Views: 47.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-01 17:25:00 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 40ms (Views: 30.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2018-05-01 17:25:02 +1000
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (2.6ms)
+  Rendered categories/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 65ms (Views: 41.4ms | ActiveRecord: 13.4ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2018-05-01 17:25:05 +1000
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5/umBPN3f97S5vE3s2btxe2AcL81G3omt+p1G+vXxjElEqOxAwCndoU2duV1zFAq/nkZRCKi5pdIin2JCRFbAw==", "category"=>{"name"=>"Food"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Food"], ["created_at", "2018-05-01 07:25:05.498805"], ["updated_at", "2018-05-01 07:25:05.498805"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1
+Completed 302 Found in 16ms (ActiveRecord: 9.3ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2018-05-01 17:25:05 +1000
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 31ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2018-05-01 17:25:28 +1000
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-01 17:25:39 +1000
+Processing by StoresController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered stores/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 40ms (Views: 35.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stores/new" for 127.0.0.1 at 2018-05-01 17:25:41 +1000
+Processing by StoresController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (2.0ms)
+  Rendered stores/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 73ms (Views: 37.5ms | ActiveRecord: 16.5ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2018-05-01 17:25:45 +1000
+Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xx3qldakkJeIbtOJjoR7AKhpVR6q4jiqeosCjwExPo8cyozGKK9yR+n61ie5w02PRa9/HMP+2rVbp07dRX2XJQ==", "store"=>{"name"=>"Bill's Pickles"}, "commit"=>"Create Store"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (1.6ms)
+  Rendered stores/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 43ms (Views: 28.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-01 17:26:37 +1000
+Processing by StoresController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered stores/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/stores/new" for 127.0.0.1 at 2018-05-01 17:26:38 +1000
+Processing by StoresController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (2.7ms)
+  Rendered stores/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 59ms (Views: 55.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2018-05-01 17:26:43 +1000
+Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K1V0lwtY5e9D8RdjlLjX9vAQsMtzcLctmwyEEtdiMd/wghLE9VMHPyJlEs2j/+F5HdaayRpsVTK6IMhAky6YdQ==", "store"=>{"name"=>"Bill's Pickles", "user"=>"1"}, "commit"=>"Create Store"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :user
+  [1m[35m (3.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (2.4ms)
+  Rendered stores/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 42ms (Views: 31.8ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-01 17:26:53 +1000
+Processing by StoresController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (1.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered stores/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 122ms (Views: 115.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-01 17:26:55 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 53ms (Views: 43.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2018-05-01 17:28:01 +1000
+Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3t1dY7LDdGp2bGABZVImjeTX+67wAKjCm0MJH45fj09a2dwD79yjG4Uh0v9j28rYnQkyTW2ny2kfoWTOCgFPsw==", "store"=>{"name"=>"Bill's Pickles", "user"=>"2"}, "commit"=>"Create Store"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (1.6ms)
+  Rendered stores/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 56ms (Views: 45.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2018-05-01 17:28:36 +1000
+Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3CphP0ToFJaAsB2HGV2+FKQv6ZRgRYiRkODfBNcTn/xYLuBfGffD53P9r3kf1FJB3fEgd/3i6zoUArLVU01fAA==", "store"=>{"name"=>"Bill's Pickles", "user"=>"2"}, "commit"=>"Create Store"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (1.6ms)
+  Rendered stores/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 38ms (Views: 28.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-01 17:29:14 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StoresController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (1.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered stores/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 283ms (Views: 235.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/stores/new" for 127.0.0.1 at 2018-05-01 17:29:16 +1000
+Processing by StoresController#new as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (28.7ms)
+  Rendered stores/new.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 125ms (Views: 64.1ms | ActiveRecord: 49.9ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2018-05-01 17:29:21 +1000
+Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AtWdxC8RgQG7QPOTbdUWY5Z4sICBcOsEI5+ZPPKwQA/ZAvuX0Rpj0drU9j1akiDse76aguhsCRsCs9VutvzppQ==", "store"=>{"name"=>"Bill's Pickles", "user"=>"2"}, "commit"=>"Create Store"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :user
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (3.2ms)
+  Rendered stores/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 50ms (Views: 44.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2018-05-01 17:30:30 +1000
+Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wO9+v3PlwCwYkDT2OYfxmTIROVrPHnBLvDM0XtruG/1E6//fLvoXXevdhgg/Dh3MS8/wuVK5E+A40VmPXrDbAQ==", "store"=>{"name"=>"Bill's Pickles", "user"=>"2"}, "commit"=>"Create Store"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :user
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering stores/new.html.erb within layouts/application
+  Rendered stores/_form.html.erb (2.2ms)
+  Rendered stores/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 41ms (Views: 31.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2018-05-01 17:30:34 +1000
+Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pTgBspOX+emGw2v4Ic79+r8W2sMkCn7VERBJp8LRGo8hPIDSzogumHWO2QYnRxGvxsgTILmtHX6V8iR2Ro/acw==", "store"=>{"name"=>"Bill's Pickles", "user_id"=>"2"}, "commit"=>"Create Store"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "stores" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Bill's Pickles"], ["user_id", 2], ["created_at", "2018-05-01 07:30:34.420725"], ["updated_at", "2018-05-01 07:30:34.420725"]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/stores/1
+Completed 302 Found in 25ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/stores/1" for 127.0.0.1 at 2018-05-01 17:30:34 +1000
+Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stores/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered stores/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 46ms (Views: 39.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/stores/1" for 127.0.0.1 at 2018-05-01 17:31:08 +1000
+Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering stores/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered stores/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 32ms (Views: 27.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-05-01 17:31:17 +1000
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/Iz4dyIMNLCmm8I4Ou1Ia0jc3BOxg7dfaVPBGkb9kvWES89lrMcgy6htGJEFCFp7fbATlotuBEl1biE98rY4hQ==", "product"=>{"name"=>"Jar of pickles", "price"=>"10", "stock_level"=>"100", "description"=>"Dill pickles", "category_id"=>"Food", "store_id"=>"1"}, "commit"=>"Create Product"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (4.7ms)
+  Rendered products/new.html.erb within layouts/application (7.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 38.8ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-05-01 17:31:22 +1000
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hq5EMrdMUNwwaIl9goC9KZ2DleTluzLPQ5Xv1s4IXkaaqsVS6lOHrcMlO4OECVF85F1cB3gcUWTHd4IHSlaeug==", "product"=>{"name"=>"", "price"=>"10", "stock_level"=>"100", "description"=>"Dill pickles", "category_id"=>"1", "store_id"=>"1"}, "commit"=>"Create Product"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "products" ("price", "stock_level", "description", "category_id", "store_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["price", 10.0], ["stock_level", 100], ["description", "Dill pickles"], ["category_id", 1], ["store_id", 1], ["created_at", "2018-05-01 07:31:22.018436"], ["updated_at", "2018-05-01 07:31:22.018436"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 17ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-01 17:31:22 +1000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/show.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 39.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-01 17:31:52 +1000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/show.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 32.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-01 17:31:58 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (33.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 84ms (Views: 78.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-05-01 17:32:05 +1000
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (4.8ms)
+  Rendered products/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 96ms (Views: 91.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-01 17:32:18 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (2.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (65.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 181ms (Views: 173.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2018-05-01 17:32:24 +1000
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `check_user' for #<ProductsController:0x00007fb1211eaff8>):
+  
+activesupport (5.1.6) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.6) lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.6) lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+activesupport (5.1.6) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.6) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.6) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.6) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/products/1/edit" for 127.0.0.1 at 2018-05-01 17:32:44 +1000
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (3.1ms)
+  Rendered products/edit.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 83ms (Views: 33.4ms | ActiveRecord: 6.2ms)
+
+
+Started PATCH "/products/1" for 127.0.0.1 at 2018-05-01 17:32:50 +1000
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kp3xuCz7C9ab74175NHW9wDSxbHvSNPyUr/+HwRfJF4WmXDYceTcp2iiP4XiWDqieQwMUnLvsFnWXZPOgAHkog==", "product"=>{"name"=>"Dill pickles", "price"=>"10.0", "stock_level"=>"100", "description"=>"Dill pickles", "category_id"=>"1", "store_id"=>"1"}, "commit"=>"Update Product", "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :name
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 31ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-01 17:32:50 +1000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/show.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 26.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-01 17:32:52 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 42.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2018-05-01 17:35:12 +1000
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (3.1ms)
+  Rendered products/edit.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 73ms (Views: 36.8ms | ActiveRecord: 7.3ms)
+
+
+Started PATCH "/products/1" for 127.0.0.1 at 2018-05-01 17:35:18 +1000
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q4Ac5X9r0VVe3hZInQ/kRNppcPZZy6jWSZYEhURyVpxXfMZo1f9rRAj1yw1FMnPKzlbMwDorzW5FfaqqtHe+Sw==", "product"=>{"name"=>"Jar of pickles", "price"=>"10.0", "stock_level"=>"100", "description"=>"Dill pickles", "category_id"=>"1", "store_id"=>"1"}, "commit"=>"Update Product", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "products" SET "name" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["name", "Jar of pickles"], ["updated_at", "2018-05-01 07:35:18.516307"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 34ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-05-01 17:35:18 +1000
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/show.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 28.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-01 17:35:20 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 57.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-01 17:35:27 +1000
+Processing by StoresController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  Rendered stores/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 47ms (Views: 43.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-01 17:35:32 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 34.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-05-01 17:35:37 +1000
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (5.6ms)
+  Rendered products/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 88ms (Views: 81.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-02 10:08:05 +1000
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (2.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (93.6ms)
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 341ms (Views: 280.8ms | ActiveRecord: 44.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-02 10:17:18 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (20.4ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Product:0x00007ff58041b040>):
+    20:     <% @products.each do |product| %>
+    21:       <tr>
+    22:         <td><%= product.name %></td>
+    23:         <td><%= product.user.email %></td>
+    24:         <td><%= product.price %></td>
+    25:         <td><%= product.stock_level %></td>
+    26:         <td><%= product.description %></td>
+  
+app/views/products/index.html.erb:23:in `block in _app_views_products_index_html_erb___3459493995435020547_70346183380600'
+app/views/products/index.html.erb:20:in `_app_views_products_index_html_erb___3459493995435020547_70346183380600'
+Started GET "/products" for 127.0.0.1 at 2018-05-02 10:25:16 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (36.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 110ms (Views: 96.8ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2018-05-02 10:25:26 +1000
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 43ms (Views: 29.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-02 10:46:12 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (8.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 59.7ms | ActiveRecord: 1.7ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RolifyCreateRoles (20180502011223)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (39.2ms)[0m  [1m[35mCREATE TABLE "roles" ("id" bigserial primary key, "name" character varying, "resource_type" character varying, "resource_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_roles_on_resource_type_and_resource_id" ON "roles"  ("resource_type", "resource_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users_roles" ("user_id" bigint, "role_id" bigint)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_users_roles_on_user_id" ON "users_roles"  ("user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_roles_on_role_id" ON "users_roles"  ("role_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_roles_on_name_and_resource_type_and_resource_id" ON "roles"  ("name", "resource_type", "resource_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_roles_on_user_id_and_role_id" ON "users_roles"  ("user_id", "role_id")[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180502011223"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "admin"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "admin"], ["created_at", "2018-05-02 03:29:01.846153"], ["updated_at", "2018-05-02 03:29:01.846153"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 2], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 1[0m
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 2], ["role_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users" for 127.0.0.1 at 2018-05-02 13:40:07 +1000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 158ms (Views: 129.2ms | ActiveRecord: 7.1ms)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "post_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["city", "Windsor"], ["state", "QLD"], ["country", "Australia"], ["post_code", "4030"], ["created_at", "2018-05-02 03:41:09.559192"], ["updated_at", "2018-05-02 03:41:09.559192"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@billspickles.com.au"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for 127.0.0.1 at 2018-05-02 13:43:13 +1000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 298ms (Views: 263.6ms | ActiveRecord: 5.7ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@pickles/com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@pickles/com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@pickles/com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@pickles.com"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "me@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "me@email.com"], ["created_at", "2018-05-02 03:57:22.485387"], ["updated_at", "2018-05-02 03:57:22.485387"], ["encrypted_password", "$2a$11$XahZLTofOPvr31JgLX42VeHKEzyPbHFB2U75Cl.sDSxUuUtBlqWGC"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "locations" ("city", "state", "country", "post_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["city", "Windsor"], ["state", "QLD"], ["country", "Australia"], ["post_code", "4030"], ["created_at", "2018-05-02 04:00:57.648283"], ["updated_at", "2018-05-02 04:00:57.648283"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bill@billspickles.com.au"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "bill@billspickles.com.au"], ["created_at", "2018-05-02 04:00:57.796006"], ["updated_at", "2018-05-02 04:00:57.796006"], ["encrypted_password", "$2a$11$OFoVHqsCV1tpithz1t2plO0yuLwUsWfbzRgPEAO55LycuBf3.BUFK"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users" for 127.0.0.1 at 2018-05-02 14:04:27 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 136ms (Views: 100.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-02 14:16:18 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 82ms (Views: 76.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-02 14:16:21 +1000
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (79.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 158ms (Views: 129.0ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-02 16:15:34 +1000
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (69.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 318ms (Views: 285.5ms | ActiveRecord: 16.6ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" LIMIT $1[0m  [["LIMIT", 11]]
