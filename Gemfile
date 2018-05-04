@@ -59,3 +59,5 @@ gem "devise", "~> 4.4"
 
 # Added at 2018-05-01 16:49:50 +1000 by caroevans:
 gem "rolify", "~> 5.2"
+
+ruby "2.5.0"
