@@ -25,9 +25,12 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
+    @store.user_id = current_user.id
 
     respond_to do |format|
       if @store.save
+        current_user.add_role(:owner)
+
         format.html { redirect_to @store, notice: 'Store was successfully created.' }
         format.json { render :show, status: :created, location: @store }
       else
@@ -69,6 +72,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:name, :user_id)
+      params.require(:store).permit(:name)
     end
 end

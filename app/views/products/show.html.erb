@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>Price:</strong>
   <%= @product.price %>
@@ -15,13 +17,19 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category %>
+  <%= @product.category.name %>
 </p>
 
 <p>
   <strong>Store:</strong>
-  <%= @product.store %>
+  <%= @product.store.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+<% if current_user && current_user == @store.user %>
+<p>I am the owner</p>
+<% else %>
+<p>I am not the owner</p>
+<% end %>

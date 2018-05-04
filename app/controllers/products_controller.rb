@@ -11,12 +11,13 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @store = @product.store
   end
 
   # GET /products/new
   def new
     if current_user.has_role? :admin or current_user.has_role? :owner
-        @pproduct = Product.new
+        @product = Product.new
       else
         flash[:notice] = "You are not authorized"
         redirect_to products_path
@@ -31,7 +32,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.user = current_user
+    @product.store_id = Store.where({user_id: current_user.id}).first.id
 
     respond_to do |format|
       if @product.save
@@ -77,6 +78,11 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :stock_level, :description, :category_id, :store_id)
+      params.require(:product).permit(:name, :price, :stock_level, :description, :category_id)
+    end
+
+    def not_authorized
+      flash[:notice] = "You are not authorized"
+      redirect_to products_path
     end
 end
