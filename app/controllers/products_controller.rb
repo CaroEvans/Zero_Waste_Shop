@@ -32,7 +32,9 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.store_id = Store.where({user_id: current_user.id}).first.id
+    @product.store = current_user.store
+
+    not_authorized unless current_user.can_update?(@product)
 
     respond_to do |format|
       if @product.save
@@ -43,7 +45,6 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   # PATCH/PUT /products/1
@@ -63,6 +64,8 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    not_authorized and return unless current_user.can_delete?(@product)
+
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
