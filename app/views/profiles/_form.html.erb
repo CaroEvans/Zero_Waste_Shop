@@ -31,10 +31,6 @@
     <%= form.text_field :street_address, id: :profile_street_address %>
   </div>
 
-  <div class="field">
-     <%= form.label :location %>
-     <%= form.select :location_id, options_from_collection_for_select(Location.all, :city, :state, :country), id: :profile_location_id %>
-  </div>
 
   <div class="field">
     <%= form.label :phone_number %>
