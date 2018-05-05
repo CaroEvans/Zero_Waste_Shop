@@ -1,13 +1,10 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
+  <strong>Name:</strong>
+  <%= @profile.full_name %>
 </p>
 
 <p>
@@ -16,13 +13,8 @@
 </p>
 
 <p>
-  <strong>Street address:</strong>
-  <%= @profile.street_address %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @profile.location %>
+  <strong>Address:</strong>
+  <%= @profile.street_address %>, <%= @profile.location.full_address %>
 </p>
 
 <p>
@@ -35,10 +27,7 @@
   <%= @profile.bio %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
+
+</div>

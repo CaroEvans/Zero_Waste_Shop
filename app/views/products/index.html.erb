@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
+
+  <p id="notice"><%= notice %></p>
+
 
 <h1>Products</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -27,11 +28,8 @@
         <td><%= product.category.name %></td>
         <td><%= product.store.name %></td>
         <td><%= link_to 'Show', product %></td>
-
-        <% if product.store.user == current_user%>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td><%= link_to 'Edit', edit_product_path(product) if product.store.user == current_user %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } if product.store.user == current_user %></td>
 
       </tr>
     <% end %>
@@ -40,6 +38,6 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<button><%= link_to 'New Product', new_product_path %></button>
 
 </div>

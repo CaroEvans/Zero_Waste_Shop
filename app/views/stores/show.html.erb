@@ -1,3 +1,5 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,9 +8,13 @@
 </p>
 
 <p>
-  <strong>Store Owner:</strong>
-  <%= @store.user.profile.first_name %>
+  <% if @store.user.profile.present? %>
+    <strong>Store Owner:</strong>
+    <%= @store.user.profile.first_name%>&nbsp;<%= @store.user.profile.last_name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
+
+</div>
