@@ -35,14 +35,17 @@
           </ul>
         </div>
         <div>
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.profile.present? %>
           <p>Signed in as:
           <%= current_user.profile.first_name %>
           <button><%= link_to('Your Profile', current_user.profile) %></button>
           <button><%= link_to('Logout', destroy_user_session_path,method: :delete) %></button>
+          </p>
+          <% elsif user_signed_in? && current_user.profile.nil? %>
+          <button><%= link_to('Set up your Profile', new_profile_path) %></button>
+          <button><%= link_to('Logout', destroy_user_session_path,method: :delete) %></button>
           <% else %>
           <button><%= link_to('Login', new_user_session_path) %></button>
-          </p>
           <% end %>
         </div>
       </nav>

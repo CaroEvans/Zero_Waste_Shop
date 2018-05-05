@@ -32,9 +32,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :location_id %>
-    <%= form.text_field :location_id, id: :profile_location_id %>
-  </div>
+   <%= form.label :location_id %>
+   <%= form.select :location_id, options_from_collection_for_select(Location.all, :city, :state, :country), id: :profile_location_id %>
+ </div>
 
   <div class="field">
     <%= form.label :phone_number %>
@@ -44,11 +44,6 @@
   <div class="field">
     <%= form.label :bio %>
     <%= form.text_area :bio, id: :profile_bio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :profile_user_id %>
   </div>
 
   <div class="actions">

@@ -8,7 +8,6 @@ class User < ApplicationRecord
    after_create :set_role
    has_one :profile
    has_one :store
-   has_one :role
 
   def set_role
    add_role :owner
