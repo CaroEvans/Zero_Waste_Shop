@@ -32,9 +32,9 @@
   </div>
 
   <div class="field">
-   <%= form.label :location_id %>
-   <%= form.select :location_id, options_from_collection_for_select(Location.all, :city, :state, :country), id: :profile_location_id %>
- </div>
+     <%= form.label :location %>
+     <%= form.select :location_id, options_from_collection_for_select(Location.all, :city, :state, :country), id: :profile_location_id %>
+  </div>
 
   <div class="field">
     <%= form.label :phone_number %>

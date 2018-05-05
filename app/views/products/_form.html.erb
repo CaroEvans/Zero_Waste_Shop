@@ -32,9 +32,9 @@
   </div>
 
   <div class="field">
-   <%= form.label :category %>
-   <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name), id: :product_category_id %>
- </div>
+     <%= form.label :category %>
+     <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name), id: :product_category_id %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
