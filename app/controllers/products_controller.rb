@@ -16,12 +16,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    if current_user.has_role? :admin or current_user.has_role? :owner
-        @product = Product.new
-      else
-        flash[:notice] = "You are not authorized"
-        redirect_to products_path
-      end
+    @product = Product.new
   end
 
   # GET /products/1/edit
@@ -33,18 +28,15 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.store = current_user.store
-
-    not_authorized unless current_user.can_update?(@product)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @product.save
+          format.html { redirect_to @product, notice: 'Product was successfully created.' }
+          format.json { render :show, status: :created, location: @product }
+        else
+          format.html { render :new }
+          format.json { render json: @product.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PATCH/PUT /products/1

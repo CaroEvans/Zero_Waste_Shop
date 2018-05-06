@@ -48,7 +48,7 @@
           <button><%= link_to('Set up your Profile', new_profile_path) %></button>
           <button><%= link_to('Logout', destroy_user_session_path,method: :delete) %></button>
           <% else %>
-          <button><%= link_to('Login', new_user_session_path) %></button>
+          <button><%= link_to('Log in or Sign up', new_user_session_path) %></button>
           <% end %>
         </div>
       </nav>
