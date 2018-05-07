@@ -8,6 +8,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Price</th>
       <th>Stock level</th>
@@ -20,8 +21,9 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= image_tag product.image_url(:thumb) %></td>
         <td><%= product.name %></td>
-        <td><%= product.price %></td>
+        <td>$<%= product.price %></td>
         <td><%= product.stock_level %></td>
         <td><%= product.description %></td>
         <td><%= product.category.name %></td>

@@ -61,3 +61,9 @@ gem "devise", "~> 4.4"
 gem "rolify", "~> 5.2"
 
 ruby "2.5.0"
+
+# Added at 2018-05-07 14:37:34 +1000 by caroevans:
+gem "carrierwave", "~> 1.2"
+
+# Added at 2018-05-07 14:38:04 +1000 by caroevans:
+gem "cloudinary", "~> 1.9"

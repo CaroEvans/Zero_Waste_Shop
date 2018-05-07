@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.store = current_user.store
+
       respond_to do |format|
         if @product.save
           format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -56,8 +57,8 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    not_authorized and return unless current_user.can_delete?(@product)
-
+    # not_authorized and return unless current_user.can_delete?(@product)
+    #
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
@@ -71,13 +72,13 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :price, :stock_level, :description, :category_id)
-    end
-
     def not_authorized
       flash[:notice] = "You are not authorized"
       redirect_to products_path
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def product_params
+      params.require(:product).permit(:name, :price, :stock_level, :description, :image, :category_id)
     end
 end

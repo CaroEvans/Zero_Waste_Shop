@@ -2,6 +2,10 @@
 
 <p id="notice"><%= notice %></p>
 
+  <div class="image-cropper">
+    <p id="profile"><%= image_tag @profile.image_url(:thumb)%></p>
+  </div><br>
+
 <p>
   <strong>Name:</strong>
   <%= @profile.full_name %>
@@ -9,7 +13,7 @@
 
 <p>
   <strong>Email:</strong>
-  <%= @profile.email %>
+  <%= @profile.user.email %>
 </p>
 
 <p>
@@ -27,7 +31,8 @@
   <%= @profile.bio %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<button><%= link_to 'Edit', edit_profile_path(@profile) %></button>
+<button><%= link_to 'Back', profiles_path %></button>
+<button><%= link_to 'Delete your Account?', @profile.user, method: :delete, data: {confirm: 'Are you sure?'} if @profile.user == current_user %></button>
 
 </div>

@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label :price %> $
     <%= form.text_field :price, id: :product_price %>
   </div>
 
@@ -29,6 +29,11 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :product_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :product_image %>
   </div>
 
   <div class="field">

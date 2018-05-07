@@ -1,4 +1,5 @@
 class StoresController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_store, only: [:show, :edit, :update, :destroy]
 
   # GET /stores
@@ -26,6 +27,7 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     @store.user_id = current_user.id
+
     respond_to do |format|
       if @store.save
         current_user.add_role(:owner)
@@ -70,6 +72,11 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store, :name).permit(:name)
+      params.require(:store).permit(:name)
+    end
+
+    def not_authorized
+      flash[:notice] = "You are not authorized"
+      redirect_to products_path
     end
 end

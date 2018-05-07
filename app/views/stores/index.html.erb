@@ -17,7 +17,7 @@
     <% @stores.each do |store| %>
       <tr>
         <td><%= store.name %></td>
-        <td><%= store.user.profile.first_name if store.user.profile.present?%>&nbsp;<%= store.user.profile.last_name if store.user.profile.present?%></td>
+        <td><%= store.user.profile.full_name if store.user.profile.present? %></td>
         <td><%= link_to 'Show', store %></td>
 
         <td><%= link_to 'Edit', edit_store_path(store) if current_user && current_user == store.user %></td>
