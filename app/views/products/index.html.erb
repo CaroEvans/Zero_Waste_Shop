@@ -1,8 +1,15 @@
-<div class="home-header"></div>
+<% #hide pic for search %>
+<% if !params[:product_name] %>
+<div class="home-header">
+<h1 class = "home">Tagline here</h1>
+</div>
+<% end %>
+<% #hide pic for search %>
 
 <div class="container">
 
 <p id="notice"><%= notice %></p>
+
 
 <table class="table table-bordered">
   <thead>
