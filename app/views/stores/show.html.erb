@@ -7,12 +7,17 @@
   <%= @store.name %>
 </p>
 
+<% if @store.user.profile.present? %>
 <p>
-  <% if @store.user.profile.present? %>
     <strong>Store Owner:</strong>
-    <%= @store.user.profile.first_name%>&nbsp;<%= @store.user.profile.last_name %>
-  <% end %>
+    <%= @store.user.profile.full_name %>
 </p>
+<p>
+    <strong>Location:</strong>
+    <%= @store.user.profile.location.full_address %>
+</p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
