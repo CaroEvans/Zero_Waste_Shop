@@ -9,6 +9,7 @@
     <tr>
       <th>Name</th>
       <th>Store Owner</th>
+      <th>Store Location</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
       <tr>
         <td><%= store.name %></td>
         <td><%= store.user.profile.full_name if store.user.profile.present? %></td>
+        <td><%= store.user.profile.location.full_address if store.user.profile.present? %></td>
         <td><%= link_to 'Show', store %></td>
 
         <td><%= link_to 'Edit', edit_store_path(store) if current_user && current_user == store.user %></td>
