@@ -87,6 +87,6 @@ class ProductsController < ApplicationController
     end
 
     def filter_params
-      params.slice(:product_name)
+      params.slice(:search_term)
     end
 end

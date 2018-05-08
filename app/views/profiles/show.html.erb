@@ -32,7 +32,6 @@
 </p>
 
 <button><%= link_to 'Edit', edit_profile_path(@profile) %></button>
-<button><%= link_to 'Back', profiles_path %></button>
 <button><%= link_to 'Delete your Account?', @profile.user, method: :delete, data: {confirm: 'Are you sure?'} if @profile.user == current_user %></button>
 
 </div>

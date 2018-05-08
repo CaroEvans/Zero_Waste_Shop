@@ -5,6 +5,9 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    filter_params.each do |key, value|
+    @categories = @categories.public_send(key,value) if value.present?
+    end
   end
 
   # GET /categories/1
@@ -66,9 +69,11 @@ class CategoriesController < ApplicationController
     def set_category
       @category = Category.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:name)
+    end
+    def filter_params
+      params.slice(:search_term)
     end
 end

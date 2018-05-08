@@ -6,6 +6,9 @@ class StoresController < ApplicationController
   # GET /stores.json
   def index
     @stores = Store.all
+    filter_params.each do |key, value|
+    @stores = @stores.public_send(key,value) if value.present?
+    end
   end
 
   # GET /stores/1
@@ -79,4 +82,8 @@ class StoresController < ApplicationController
       flash[:notice] = "You are not authorized"
       redirect_to products_path
     end
-end
+
+    def filter_params
+      params.slice(:search_term)
+    end
+  end

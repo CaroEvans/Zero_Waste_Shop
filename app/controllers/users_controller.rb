@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    filter_params.each do |key, value|
+    @users = @users.public_send(key,value) if value.present?
+    end
   end
 
   # GET /users/1
@@ -71,4 +74,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :street_address, :location_id, :phone_number, :bio)
     end
+
+    def filter_params
+      params.slice(:search_term)
+    end
+
 end

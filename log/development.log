@@ -26469,3 +26469,1226 @@ Migrating to AddImageToProfile (20180507051331)
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Creating scope :search_term. Overwriting existing method User.search_term.
+Started GET "/" for 127.0.0.1 at 2018-05-08 15:30:08 +1000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (1.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (70.3ms)
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 492ms (Views: 422.5ms | ActiveRecord: 22.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:30:12 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (12.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (35.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (86.1ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 138ms (Views: 76.4ms | ActiveRecord: 55.1ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:30:13 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (6.9ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (27.1ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 132ms (Views: 115.9ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:30:54 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (11.8ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 87ms (Views: 59.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:31:19 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (4.7ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 50.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:31:22 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (61.0ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 168ms (Views: 158.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:31:23 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (23.2ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 81.9ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:31:23 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (23.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (48.8ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 91ms (Views: 59.1ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:31:31 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (14.5ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 64.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:31:33 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (1.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (83.4ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 186ms (Views: 163.5ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:32:03 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (5.1ms)
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 37.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:32:05 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (5.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (9.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (32.6ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 110ms (Views: 87.9ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:32:07 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (21.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (6.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.1ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (63.2ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 128ms (Views: 87.4ms | ActiveRecord: 37.9ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:32:53 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (11.3ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 45.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:32:56 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (6.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (33.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (59.5ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 48.3ms | ActiveRecord: 42.8ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:32:57 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (5.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (1.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (13.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (87.2ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 174ms (Views: 134.1ms | ActiveRecord: 37.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:35:18 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (8.3ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 36.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:35:20 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (13.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (36.8ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 70.9ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:36:23 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (11.5ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 52.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:36:25 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (9.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (1.9ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (20.2ms)
+  [1m[36mProfile Load (2.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 98ms (Views: 80.6ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:36:28 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (1.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (12.8ms)
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 91ms (Views: 82.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:36:29 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (33.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (60.0ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 132ms (Views: 85.0ms | ActiveRecord: 43.3ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:36:31 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (27.2ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 81ms (Views: 69.0ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:36:33 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (18.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (2.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (30.2ms)
+  [1m[36mProfile Load (3.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 145ms (Views: 115.0ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:37:08 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.2ms)
+
+
+  
+SyntaxError (/Users/caroevans/Desktop/Zero_Waste_Shop/app/views/layouts/application.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+...ame == 'stores' controller_name == 'users' controller_name =...
+...                ^~~~~~~~~~~~~~~
+/Users/caroevans/Desktop/Zero_Waste_Shop/app/views/layouts/application.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...name == 'users' controller_name == 'categories' controller_n...
+...                ^~~~~~~~~~~~~~~
+/Users/caroevans/Desktop/Zero_Waste_Shop/app/views/layouts/application.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...== 'categories' controller_name == 'locations'
+...                ^~~~~~~~~~~~~~~
+/Users/caroevans/Desktop/Zero_Waste_Shop/app/views/layouts/application.html.erb:83: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/layouts/application.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+app/views/layouts/application.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/layouts/application.html.erb:23: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/layouts/application.html.erb:83: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:37:27 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (7.3ms)
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 52ms (Views: 44.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-08 15:37:30 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (2.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (5.4ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 71.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:37:31 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (99.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (12.8ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 157ms (Views: 49.1ms | ActiveRecord: 101.6ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:37:33 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (8.7ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 88ms (Views: 77.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:37:39 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (11.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (28.4ms)
+  [1m[36mProfile Load (1.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 100ms (Views: 79.1ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:37:42 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (16.7ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (62.3ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 99ms (Views: 50.7ms | ActiveRecord: 44.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:37:43 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (12.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (18.3ms)
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 220ms (Views: 130.5ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:37:43 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (7.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (2.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (18.6ms)
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 203ms (Views: 180.3ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-08 15:37:44 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (2.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (4.9ms)
+  [1m[36mProfile Load (122.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 214ms (Views: 84.3ms | ActiveRecord: 125.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:37:45 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (3.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (29.3ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 83ms (Views: 72.7ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:37:46 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (10.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (34.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (2.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (75.9ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 157ms (Views: 82.1ms | ActiveRecord: 69.3ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:38:18 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (8.5ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (40.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (68.2ms)
+  [1m[36mCACHE Profile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 113ms (Views: 50.7ms | ActiveRecord: 54.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:38:27 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (17.1ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 185ms (Views: 176.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:38:33 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (0.6ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (17.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (1.8ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (40.5ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 81ms (Views: 55.7ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/stores/10/edit" for 127.0.0.1 at 2018-05-08 15:38:35 +1000
+Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering stores/edit.html.erb within layouts/application
+  Rendered stores/_form.html.erb (60.1ms)
+  Rendered stores/edit.html.erb within layouts/application (67.3ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 110ms (Views: 98.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:38:39 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (1.4ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (5.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (36.4ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 98ms (Views: 75.1ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:38:47 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (21.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.1ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (38.3ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 58.8ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2018-05-08 15:38:50 +1000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (18.5ms)
+  Rendered users/edit.html.erb within layouts/application (29.7ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 90ms (Views: 80.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:38:54 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (46.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (68.6ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 110ms (Views: 51.2ms | ActiveRecord: 54.2ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2018-05-08 15:38:59 +1000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (10.1ms)
+  Rendered users/edit.html.erb within layouts/application (18.6ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 82ms (Views: 76.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:39:02 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (14.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (14.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (55.2ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 65.3ms | ActiveRecord: 32.5ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:39:04 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (14.5ms)
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 44.8ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:39:08 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (13.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (29.7ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 51.9ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2018-05-08 15:39:11 +1000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.3ms)
+  Rendered users/edit.html.erb within layouts/application (10.4ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 57.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:39:41 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (22.1ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 81.1ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2018-05-08 15:39:48 +1000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (6.2ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 67ms (Views: 61.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:39:52 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (20.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (35.0ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 147ms (Views: 120.1ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2018-05-08 15:39:53 +1000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.4ms)
+  Rendered users/edit.html.erb within layouts/application (7.4ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 63.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-08 15:40:21 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (38.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (41.0ms)
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 104ms (Views: 53.8ms | ActiveRecord: 39.7ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:40:28 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (1.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (15.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (21.0ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 44.0ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/profiles/6/edit" for 127.0.0.1 at 2018-05-08 15:40:30 +1000
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/edit.html.erb within layouts/application
+  [1m[36mLocation Load (7.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered profiles/_form.html.erb (17.7ms)
+  Rendered profiles/edit.html.erb within layouts/application (24.7ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 146ms (Views: 131.8ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:40:37 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (3.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (6.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (55.9ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 157ms (Views: 140.8ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2018-05-08 15:40:39 +1000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.0ms)
+  Rendered users/edit.html.erb within layouts/application (10.0ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 61ms (Views: 57.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/8/edit" for 127.0.0.1 at 2018-05-08 15:41:05 +1000
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/edit.html.erb within layouts/application (4.2ms)
+  [1m[36mProfile Load (4.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 43.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-08 15:41:08 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (13.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 9], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (13.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (40.5ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 75ms (Views: 42.0ms | ActiveRecord: 29.5ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:41:15 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (16.3ms)
+  [1m[36mProfile Load (9.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 50.2ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2018-05-08 15:41:17 +1000
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (10.8ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (22.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/index.html.erb within layouts/application (47.7ms)
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 98ms (Views: 55.8ms | ActiveRecord: 35.6ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2018-05-08 15:42:29 +1000
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/index.html.erb within layouts/application (13.6ms)
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 90ms (Views: 83.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:42:32 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.1ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (13.8ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 65.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:42:34 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (1.9ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (18.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (48.7ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 87ms (Views: 60.7ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:42:35 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (1.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (12.5ms)
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 76ms (Views: 69.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-08 15:42:37 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (2.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (5.3ms)
+  [1m[36mProfile Load (5.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 74ms (Views: 59.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-08 15:42:38 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (13.5ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (1.8ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (117.8ms)
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 194ms (Views: 168.3ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:42:54 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (8.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (1.9ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (14.5ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 61.3ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2018-05-08 15:42:58 +1000
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mLocation Load (4.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (26.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/index.html.erb within layouts/application (65.5ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 107ms (Views: 66.0ms | ActiveRecord: 36.3ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:43:02 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (10.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (17.0ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 53.9ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:43:24 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (3.2ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 37ms (Views: 30.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/profiles/6" for 127.0.0.1 at 2018-05-08 15:44:15 +1000
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (3.9ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 107ms (Views: 99.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/profiles/" for 127.0.0.1 at 2018-05-08 15:44:24 +1000
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/index.html.erb within layouts/application (11.3ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 48.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/profiles/" for 127.0.0.1 at 2018-05-08 15:45:06 +1000
+Creating scope :search_term. Overwriting existing method User.search_term.
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  Rendered profiles/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 5.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    18:   </thead>
+    19: 
+    20:   <tbody>
+    21:     <% @profiles.each do |profile| %>
+    22:       <tr>
+    23: 
+    24:         <td><div class="image-cropper"><p id="profile"><%= image_tag profile.image_url(:thumb)%></p></div></td>
+  
+app/views/profiles/index.html.erb:21:in `_app_views_profiles_index_html_erb___1953762758967924976_70257486234480'
+Started GET "/profiles/" for 127.0.0.1 at 2018-05-08 15:45:20 +1000
+Creating scope :search_term. Overwriting existing method User.search_term.
+Processing by ProfilesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/index.html.erb within layouts/application (39.1ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 148ms (Views: 112.4ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2018-05-08 15:45:32 +1000
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (15.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered locations/index.html.erb within layouts/application (18.4ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 39.4ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2018-05-08 15:45:34 +1000
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 8]]
+  Rendered categories/index.html.erb within layouts/application (52.6ms)
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 94ms (Views: 73.5ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2018-05-08 15:45:37 +1000
+Processing by StoresController#index as HTML
+  Rendering stores/index.html.erb within layouts/application
+  [1m[36mStore Load (8.1ms)[0m  [1m[34mSELECT "stores".* FROM "stores"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered stores/index.html.erb within layouts/application (51.1ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 72.6ms | ActiveRecord: 12.2ms)
+
+
