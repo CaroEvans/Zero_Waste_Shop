@@ -19,9 +19,14 @@
     <%= @store.location.full_address %>
 </p>
 
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDURAe9ccbX3ImKBQj-6z3-fDJug0aV1lE&q=<%=@store.location.full_address%>}" allowfullscreen>
+</iframe><br>
 
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+<button><%= link_to 'Edit', edit_store_path(@store) %></button>
+<button><%= link_to 'Back', stores_path %></button>
 
 </div>
