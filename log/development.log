@@ -30003,3 +30003,2801 @@ Processing by ProductsController#index as HTML
   Rendered products/index.html.erb within layouts/application (10.0ms)
   [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
 Completed 200 OK in 44ms (Views: 38.7ms | ActiveRecord: 1.9ms)
+Creating scope :search_term. Overwriting existing method User.search_term.
+Started GET "/" for 127.0.0.1 at 2018-05-09 15:15:03 +1000
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 15:15:03 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 333ms (Views: 315.6ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 15:15:06 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 136ms (Views: 135.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 15:15:08 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fQSxvT883b+C2nEL2IlEe0OS73FH4eHEbqxyBf1qUj7PzXHj9FzNtEpy3JU8dDnKtzvopLwKOhzLmqnP2IlVTQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 05:15:08.962629"], ["updated_at", "2018-05-09 05:15:08.962629"], ["encrypted_password", "$2a$11$J7vFX8txvWgLB4dGfqkKZOw6JtSKCNRRIPZZNiHXqPeR0j7FxdI.."]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "users"."id" = $7[0m  [["updated_at", "2018-05-09 05:15:08.972205"], ["sign_in_count", 1], ["current_sign_in_at", "2018-05-09 05:15:08.971590"], ["last_sign_in_at", "2018-05-09 05:15:08.971590"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["id", 24]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 182ms (ActiveRecord: 13.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-09 15:15:09 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (68.9ms)
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+Completed 200 OK in 137ms (Views: 102.4ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:15:14 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (20.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (3.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (136.7ms)
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 61.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `location' for nil:NilClass):
+    19:       <tr>
+    20:         <td><%= image_tag user.profile.image_url(:thumb) if user.profile.present? %></td>
+    21:         <td><%= user.profile.full_name if user.profile.present? %></td>
+    22:         <td><%= user.profile.location.full_address %></td>
+    23:         <td><%= user.email %></td>
+    24:         <td><%= link_to 'Show', user %></td>
+    25:         <td><%= link_to 'Edit', edit_user_path(user) if user == current_user %></td>
+  
+app/views/users/index.html.erb:22:in `block in _app_views_users_index_html_erb__2894555337049069703_70330952730340'
+app/views/users/index.html.erb:18:in `_app_views_users_index_html_erb__2894555337049069703_70330952730340'
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:17:28 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (7.6ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 37.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:18:04 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (7.3ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 39.8ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/users/24" for 127.0.0.1 at 2018-05-09 15:18:15 +1000
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZmLQ181v/+ptVwq4LIHcbY2lz7WIACR9xxNP+Sii5aRvCblluqulDj/ajaFigweb385FzsH50nh9eSM/ty7fCA==", "id"=>"24"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 24], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "users_roles" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 24]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 24]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 63ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:18:15 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 15:18:15 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 57ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 15:30:40 +1000
+Creating scope :search_term. Overwriting existing method User.search_term.
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 135ms (Views: 98.4ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 15:30:42 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VWzfe7C4Yg/DIDEI0Z9yuzW77/CeIwVyLwRZSaFC0jDnpR8le9hyBAuInJY1Yg8KwRLoJWXI3qqKMoKDhKHVQw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 05:30:42.330199"], ["updated_at", "2018-05-09 05:30:42.330199"], ["encrypted_password", "$2a$11$A9GqXHiOsyn.lup8yDyE.OtyPj/aBU5HOn.Bhk0hQmgiFWnA3sPHu"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "users"."id" = $7[0m  [["updated_at", "2018-05-09 05:30:42.335730"], ["sign_in_count", 1], ["current_sign_in_at", "2018-05-09 05:30:42.335259"], ["last_sign_in_at", "2018-05-09 05:30:42.335259"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["id", 25]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 140ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:30:42 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (47.7ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+Completed 200 OK in 83ms (Views: 70.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-05-09 15:30:49 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mStore Load (0.4ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (203.3ms)
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+Completed 200 OK in 302ms (Views: 245.2ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/profiles/new" for 127.0.0.1 at 2018-05-09 15:31:52 +1000
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  [1m[36mLocation Load (1.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  Rendered profiles/_form.html.erb (15.9ms)
+  Rendered profiles/new.html.erb within layouts/application (21.7ms)
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+Completed 200 OK in 164ms (Views: 154.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:31:58 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (17.7ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+Completed 200 OK in 206ms (Views: 193.2ms | ActiveRecord: 7.9ms)
+
+
+Creating scope :search_term. Overwriting existing method User.search_term.
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:33:11 +1000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (83.7ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+Completed 200 OK in 397ms (Views: 360.4ms | ActiveRecord: 12.1ms)
+
+
+Started DELETE "/users/25" for 127.0.0.1 at 2018-05-09 15:33:16 +1000
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XX309qswxqcvrI4MAgMeF+QMVh+grImm7lnfM5Pz2j1UFp1E3PScQ30hCRVMAcXhtmfcZOlVf6NUM7P1DH/gkQ==", "id"=>"25"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+  [1m[36mStore Load (0.7ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 25], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "users_roles" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 25]]
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 25]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 37ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:33:16 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 15:33:16 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 57ms (Views: 53.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 15:33:19 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 173ms (Views: 171.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 15:33:21 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xqAW1k5uOXNjUbtdI9BA3z3tSQQym0DHAVpT6zoxFJZ0adaIhQ4peKv5FsPHLT1uyURO0clwmx+kbIghH9IT5Q==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (7.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 05:33:21.507586"], ["updated_at", "2018-05-09 05:33:21.507586"], ["encrypted_password", "$2a$11$UZ0MCaigEGMf2fTig6iCwepS2IlCmjUI0ZHOh4W3znBc3dDkAHmay"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "users"."id" = $7[0m  [["updated_at", "2018-05-09 05:33:21.517542"], ["sign_in_count", 1], ["current_sign_in_at", "2018-05-09 05:33:21.517053"], ["last_sign_in_at", "2018-05-09 05:33:21.517053"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["id", 26]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 163ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:33:21 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (7.0ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 32.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-09 15:36:11 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (4.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (51.1ms)
+  [1m[36mProfile Load (6.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+Completed 200 OK in 247ms (Views: 202.4ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:43:41 +1000
+Creating scope :search_term. Overwriting existing method User.search_term.
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Location Load (0.0ms)[0m  [1m[34mSELECT  "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+  Rendered users/index.html.erb within layouts/application (40.1ms)
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+Completed 200 OK in 90ms (Views: 63.1ms | ActiveRecord: 10.7ms)
+
+
+Started DELETE "/users/26" for 127.0.0.1 at 2018-05-09 15:43:58 +1000
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1weSirjo7OAhJfPsUYfKUJQOtvet4tfcgdGhw4lZLCPebPs4zyy2BHOodPUfhRGmxmU8jOQbIdk7u80FFtUWjw==", "id"=>"26"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 26], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "users_roles" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 26]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 26]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 26ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-09 15:43:58 +1000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 15:43:58 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-09 15:44:01 +1000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eApFlhUmy88y73aL3iZhb/BQxHZ8d10jiLEP99r/Uv5xYSwkYuKRK2Bi8ZKQJLqZojtODTWOqyYy22MxRXNoUg==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 9ms (ActiveRecord: 1.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eApFlhUmy88y73aL3iZhb/BQxHZ8d10jiLEP99r/Uv5xYSwkYuKRK2Bi8ZKQJLqZojtODTWOqyYy22MxRXNoUg==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 147ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 15:44:03 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 66ms (Views: 65.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 15:44:05 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YPQNC6NzgCnxStKGg+qY2Zt1WxFTCQBqasowEsnPDpjShBq5e3eC29thtT+8tfSksTSub6n/9kMnfMKbsQ7SQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 05:44:05.644664"], ["updated_at", "2018-05-09 05:44:05.644664"], ["encrypted_password", "$2a$11$wwHePbGoGdnHb3.6ncfP4.Ao8r56FxnXh3q2YaptNhP9uBR/t5ao6"]]
+  [1m[36mRole Load (4.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 05:44:05.666337"], ["updated_at", "2018-05-09 05:44:05.666337"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 27], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 27]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 4[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 27]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 27], ["role_id", 4]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (1.2ms)
+UserMailer#send_notification: processed outbound mail in 283.1ms
+Sent mail to caroline.w.evans@gmail.com (988.6ms)
+Date: Wed, 09 May 2018 15:44:06 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af28aa634c44_b3073fcf52b1116881369@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1674ms (ActiveRecord: 12.7ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Creating scope :search_term. Overwriting existing method User.search_term.
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3924710235238784880)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3924710235238784880)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Creating scope :search_term. Overwriting existing method User.search_term.
+Started POST "/users" for 127.0.0.1 at 2018-05-09 15:57:31 +1000
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YPQNC6NzgCnxStKGg+qY2Zt1WxFTCQBqasowEsnPDpjShBq5e3eC29thtT+8tfSksTSub6n/9kMnfMKbsQ7SQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 05:57:31.574135"], ["updated_at", "2018-05-09 05:57:31.574135"], ["encrypted_password", "$2a$11$ML1HfNbKCqJiOdrg2915V.SQcwCua6AVa/ugMorR0MLXRaNKZcZyS"]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 05:57:31.588545"], ["updated_at", "2018-05-09 05:57:31.588545"]]
+  [1m[36mRole Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 28], ["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 28]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 5[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 28]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 28], ["role_id", 5]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (1.7ms)
+UserMailer#send_notification: processed outbound mail in 191.9ms
+Sent mail to caroline.w.evans@gmail.com (1159.2ms)
+Date: Wed, 09 May 2018 15:57:32 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af28dcc4dc4_b46a3fc537f7898876d@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1767ms (ActiveRecord: 14.8ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 15:57:38 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 15:57:38 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 319ms (Views: 317.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-09 15:58:11 +1000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTDmejlny7eScGUd92urEdRSnsBuCdtyKTpUwEvY2ZFUW4/ITqORU8D94gS5aXDnhjkUuyfwLXeTUDgG1FTjPQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.5ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTDmejlny7eScGUd92urEdRSnsBuCdtyKTpUwEvY2ZFUW4/ITqORU8D94gS5aXDnhjkUuyfwLXeTUDgG1FTjPQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 189ms (Views: 71.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 15:58:14 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 70ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 15:58:16 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WHiUOGaoXUfwBpjsiFBylzI4gVN2PH/RCngX33CnBIbqsVRmrchNTDiuNXJsrQ8mxpGGho3XpAmvTswVVUQD9Q==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 05:58:16.248457"], ["updated_at", "2018-05-09 05:58:16.248457"], ["encrypted_password", "$2a$11$DrtZhkfM4aqeQ6TX9SKyCOsFiteK9sPthsoahVyd/Xq783p04MU7a"]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 05:58:16.251335"], ["updated_at", "2018-05-09 05:58:16.251335"]]
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 29], ["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 29]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 6[0m
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 29]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 29], ["role_id", 6]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (0.5ms)
+UserMailer#send_notification: processed outbound mail in 35.4ms
+Sent mail to caroline.w.evans@gmail.com (811.1ms)
+Date: Wed, 09 May 2018 15:58:16 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af28df847ac3_b46a3fc537f7898884c@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 980ms (ActiveRecord: 3.1ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Started POST "/users" for 127.0.0.1 at 2018-05-09 15:59:56 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WHiUOGaoXUfwBpjsiFBylzI4gVN2PH/RCngX33CnBIbqsVRmrchNTDiuNXJsrQ8mxpGGho3XpAmvTswVVUQD9Q==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 05:59:56.523902"], ["updated_at", "2018-05-09 05:59:56.523902"], ["encrypted_password", "$2a$11$dDCGrX8eYx2dK3SEHVEz..3D5uMJMMFuu.sqDlcjPawQIjY/E.Knu"]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 05:59:56.527118"], ["updated_at", "2018-05-09 05:59:56.527118"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 30], ["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 30]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 7[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 30]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 30], ["role_id", 7]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_notification: processed outbound mail in 19.4ms
+Sent mail to caroline.w.evans@gmail.com (832.2ms)
+Date: Wed, 09 May 2018 15:59:56 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af28e5c87c8c_b46a3fc537f787e4941@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 981ms (ActiveRecord: 4.3ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Creating scope :search_term. Overwriting existing method User.search_term.
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:01:38 +1000
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:01:39 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 836ms (Views: 818.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:01:42 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 98ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:01:44 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"37qnWuIXSaNROkizaKd78Gkqfea5RibHLVY4fQZM8JNtc2cEKXdZqJmS5S2MWgZBnYN6M0Kt/R+IYOO3I6/34A==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:01:44.265104"], ["updated_at", "2018-05-09 06:01:44.265104"], ["encrypted_password", "$2a$11$oYFoKTZ4uttt722GiO5xnOqO9b6e0bjHCCmQgyai4WzeYBlsplT5C"]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:01:44.282050"], ["updated_at", "2018-05-09 06:01:44.282050"]]
+  [1m[36mRole Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 31], ["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 31]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 8[0m
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 31]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 31], ["role_id", 8]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (0.9ms)
+UserMailer#send_notification: processed outbound mail in 220.8ms
+Sent mail to caroline.w.evans@gmail.com (1487.9ms)
+Date: Wed, 09 May 2018 16:01:44 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af28ec8b8317_b4f33ff4b4c7b6e849217@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 2134ms (ActiveRecord: 10.4ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:07:47 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"37qnWuIXSaNROkizaKd78Gkqfea5RibHLVY4fQZM8JNtc2cEKXdZqJmS5S2MWgZBnYN6M0Kt/R+IYOO3I6/34A==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:07:47.320226"], ["updated_at", "2018-05-09 06:07:47.320226"], ["encrypted_password", "$2a$11$cBjJBzz.X9qXUjs9QoBmhulH2s02h0LGKpVWtZ4XUoTrGPg7lr0.O"]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:07:47.326231"], ["updated_at", "2018-05-09 06:07:47.326231"]]
+  [1m[36mRole Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 32], ["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 32]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 9[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 32]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 32], ["role_id", 9]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (1.2ms)
+UserMailer#send_notification: processed outbound mail in 62.0ms
+Sent mail to caroline.w.evans@gmail.com (928.0ms)
+Date: Wed, 09 May 2018 16:07:47 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af29033643a6_b4f33ff4b4c7b0d04935e@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1149ms (ActiveRecord: 3.8ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:07:52 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:07:52 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 98ms (Views: 96.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:07:55 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 73ms (Views: 72.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:07:56 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ugc7b9w+QL98oOmBnkN2ItCTLab7tWSlRj3zP987wcgIzvsxF15QtLQIRB96vguTJDoqcwBev33jCyj1+tjGuw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:07:56.936186"], ["updated_at", "2018-05-09 06:07:56.936186"], ["encrypted_password", "$2a$11$9p1qfAUEZiT5U4zjy98gGeGfJqpxPxOdLrcXxzbB0ncVcxWbaEHBG"]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:07:56.938830"], ["updated_at", "2018-05-09 06:07:56.938830"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 33], ["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 33]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 10[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 33]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 33], ["role_id", 10]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_notification: processed outbound mail in 21.6ms
+Sent mail to caroline.w.evans@gmail.com (756.6ms)
+Date: Wed, 09 May 2018 16:07:56 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2903cee4b7_b4f33ff4b4c7b2b0494f8@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 918ms (ActiveRecord: 3.6ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:14:55 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ugc7b9w+QL98oOmBnkN2ItCTLab7tWSlRj3zP987wcgIzvsxF15QtLQIRB96vguTJDoqcwBev33jCyj1+tjGuw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:14:55.249577"], ["updated_at", "2018-05-09 06:14:55.249577"], ["encrypted_password", "$2a$11$KFGkub6bd5n/Bnaybv3s9eODrzJnUY0H2so/cL61FaDPNn0UwbNRa"]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:14:55.255186"], ["updated_at", "2018-05-09 06:14:55.255186"]]
+  [1m[36mRole Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 34], ["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 34]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 11[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 34]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 34], ["role_id", 11]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (1.3ms)
+UserMailer#send_notification: processed outbound mail in 24.1ms
+Sent mail to caroline.w.evans@gmail.com (1185.9ms)
+Date: Wed, 09 May 2018 16:14:55 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af291df4747a_b4f33ff4b4c7b0d0495c@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1356ms (ActiveRecord: 4.6ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:15:04 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:15:04 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 60ms (Views: 58.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:15:08 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 66ms (Views: 65.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:15:09 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gGS7YnHR+RXFucKkKyPZioze6ds4ejZV54s9j70QXKwyrXs8urHpHg0RbzrP3qQ7eHfuDsOR7Y1CveZFmPNb3w==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:15:09.934354"], ["updated_at", "2018-05-09 06:15:09.934354"], ["encrypted_password", "$2a$11$ZzJAstc.AWJ1EdlHw91d9OKO4f5JPmzZIZRYdUcofYUdzJLFh5Vim"]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:15:09.938657"], ["updated_at", "2018-05-09 06:15:09.938657"]]
+  [1m[36mRole Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 35], ["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 35]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 12[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 35]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 35], ["role_id", 12]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_notification: processed outbound mail in 20.1ms
+Sent mail to caroline.w.evans@gmail.com (1123.1ms)
+Date: Wed, 09 May 2018 16:15:09 +1000
+From: caroline.w.evans@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af291eded0e9_b4f33ff4b4c7b2b049660@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1287ms (ActiveRecord: 6.3ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Creating scope :search_term. Overwriting existing method User.search_term.
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:16:41 +1000
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 22ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:16:41 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 297ms (Views: 280.8ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:16:44 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 93ms (Views: 92.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:16:46 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eXCQJ5rXu4Zo320VZ7v0DtnSEAeSokHj329tuCeETpvLuVB5UberjaB3wIuDRom/LXsX0mlJmjt6WbZyAmdJ6A==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:16:46.255020"], ["updated_at", "2018-05-09 06:16:46.255020"], ["encrypted_password", "$2a$11$3xbWmATVqBN6vgLcK6yDy.m3gzO54USTz6pfOgfvXou3z.NyObK1i"]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:16:46.271344"], ["updated_at", "2018-05-09 06:16:46.271344"]]
+  [1m[36mRole Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 36], ["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 36]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 13[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 36]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 36], ["role_id", 13]]
+  Rendering user_mailer/send_notification.html.erb within layouts/mailer
+  Rendered user_mailer/send_notification.html.erb within layouts/mailer (0.6ms)
+UserMailer#send_notification: processed outbound mail in 243.2ms
+Sent mail to caroline.w.evans@gmail.com (856.5ms)
+Date: Wed, 09 May 2018 16:16:46 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2924ec22d5_b5da3fd66eb9c740930bf@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1532ms (ActiveRecord: 10.7ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:20:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:19:48 +1000
+Creating scope :search_term. Overwriting existing method User.search_term.
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:19:48 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 109ms (Views: 93.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:19:51 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 71ms (Views: 68.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:19:53 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dAYK0P4hg5KGmDAc5FLDgcB+npNeNu6PQACu+TIAaDTGz8qONUGTmU4wnYIAr74wNNeZRqXdNVflNnUzF+NvRw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:19:54.077939"], ["updated_at", "2018-05-09 06:19:54.077939"], ["encrypted_password", "$2a$11$9mCsQo1uAVQYWcK94gwooOdTZ7gXZMQHeWUElvv/YUTofPhGMEc6m"]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:19:54.092792"], ["updated_at", "2018-05-09 06:19:54.092792"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 37], ["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 37]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 14[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 37]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 37], ["role_id", 14]]
+UserMailer#send_signup_email: processed outbound mail in 33.9ms
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 192ms (ActiveRecord: 7.7ms)
+
+
+  
+ActionView::MissingTemplate (Missing template user_mailer/send_signup_email with "mailer". Searched in:
+  * "user_mailer"
+):
+  
+app/mailers/user_mailer.rb:6:in `send_signup_email'
+app/models/user.rb:17:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:20:44 +1000
+Creating scope :search_term. Overwriting existing method User.search_term.
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:20:44 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 65ms (Views: 48.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:20:46 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 63ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:20:48 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xgzZHHaPtc3lxr5IWhPwdGvoDiFeSUjS1FKC+eCR8Jh0xRlCve+lxi1uE9a+7o3Fn0EJ9KWikwpxZFkzxXL36w==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (8.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:20:48.834811"], ["updated_at", "2018-05-09 06:20:48.834811"], ["encrypted_password", "$2a$11$zkopiI1dBRyeI89eUlOsjeuq0qne9Adk1rKgQmkMP1uicDUkZU4z6"]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:20:48.848471"], ["updated_at", "2018-05-09 06:20:48.848471"]]
+  [1m[36mRole Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 38], ["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 38]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 15[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 38]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 38], ["role_id", 15]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.6ms)
+UserMailer#send_signup_email: processed outbound mail in 19.9ms
+Sent mail to caroline.w.evans@gmail.com (970.9ms)
+Date: Wed, 09 May 2018 16:20:48 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af29340d844a_b5da3fd66eb9c7cc931ba@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: .
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1154ms (ActiveRecord: 15.9ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:17:in `send_notification'
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:21:47 +1000
+Creating scope :search_term. Overwriting existing method User.search_term.
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xgzZHHaPtc3lxr5IWhPwdGvoDiFeSUjS1FKC+eCR8Jh0xRlCve+lxi1uE9a+7o3Fn0EJ9KWikwpxZFkzxXL36w==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:21:47.440379"], ["updated_at", "2018-05-09 06:21:47.440379"], ["encrypted_password", "$2a$11$kcPxvU5QgQNiPSfWW56S6esS5KiLVv5K4Df7.nlfb4mTMoUyPXeee"]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:21:47.454708"], ["updated_at", "2018-05-09 06:21:47.454708"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 39], ["id", 16], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 39]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 16[0m
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 39]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 39], ["role_id", 16]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.6ms)
+UserMailer#send_signup_email: processed outbound mail in 18.7ms
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:21:50 +1000
+Sent mail to caroline.w.evans@gmail.com (30002.9ms)
+Date: Wed, 09 May 2018 16:21:47 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2937b77ea9_b5da3fd66eb9c62893283@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: example.com.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 30183ms (ActiveRecord: 10.0ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/models/user.rb:17:in `send_notification'
+Creating scope :search_term. Overwriting existing method User.search_term.
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:22:18 +1000
+Processing by ProductsController#index as HTML
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:22:18 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 71ms (Views: 56.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:22:21 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 90ms (Views: 88.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:22:22 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D+7gy9jGOVXLQmN667dec9dCas4/7287H/QIBVq+W8W9JyCVE6YpXgPqzuQPSiPCI+ttG8QEtOO6wtPPf11ctg==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:22:22.918932"], ["updated_at", "2018-05-09 06:22:22.918932"], ["encrypted_password", "$2a$11$8my29eIpICeRrMJ.LT5VOuT5T7OuSFzIpADqxM3VkzgQXq5OdNove"]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:22:22.942062"], ["updated_at", "2018-05-09 06:22:22.942062"]]
+  [1m[36mRole Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 40], ["id", 17], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 40]]
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 17[0m
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 40]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 40], ["role_id", 17]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.5ms)
+UserMailer#send_signup_email: processed outbound mail in 23.1ms
+Sent mail to caroline.w.evans@gmail.com (726.7ms)
+Date: Wed, 09 May 2018 16:22:22 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2939ef269b_b5da3fd66eb9c59c933f5@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: example.com.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 930ms (ActiveRecord: 11.8ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:17:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:24:20 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:24:20 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 207ms (Views: 206.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:24:32 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 77ms (Views: 75.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:24:34 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PHDf77AcHsvWxO5g7ySKkhSlLojT7UWQgaVViNB81JWOuR+xe3wOwB5sQ/4L2fcj4AwpXSgGnkgkk45C9Z/T5g==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:24:34.430028"], ["updated_at", "2018-05-09 06:24:34.430028"], ["encrypted_password", "$2a$11$wyHK3/ruElQk24mzagqjPulth4vVlfd2zaQ5oxhxJhbQl2iZxJ34K"]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:24:34.432866"], ["updated_at", "2018-05-09 06:24:34.432866"]]
+  [1m[36mRole Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 41], ["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 41]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 18[0m
+  [1m[36mRole Load (3.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 41]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 41], ["role_id", 18]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.8ms)
+UserMailer#send_signup_email: processed outbound mail in 26.6ms
+Sent mail to caroline.w.evans@gmail.com (1090.0ms)
+Date: Wed, 09 May 2018 16:24:34 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2942273dec_b5da3fd66eb9c628934ab@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: example.com.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (53.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1316ms (ActiveRecord: 60.4ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:17:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:25:01 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:25:01 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:25:03 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 65ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:25:07 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z7fmyMrDM17xd6eEHQIXgIMrYRi9WzsamfaCUOfgsPzVfiaWAaMjVTnfChr5/2oxd4JmzUaw4MI8wFmawgO3jw==", "user"=>{"email"=>"caro.evans.dev@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caro.evans.dev@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caro.evans.dev@gmail.com"], ["created_at", "2018-05-09 06:25:07.839503"], ["updated_at", "2018-05-09 06:25:07.839503"], ["encrypted_password", "$2a$11$jVoZUZQNEH6aT2f0/mK5WOaUXHhn5LZoRHtxsBECluhG3gIzNdt3i"]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:25:07.841543"], ["updated_at", "2018-05-09 06:25:07.841543"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 42], ["id", 19], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 42]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 19[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 42]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 42], ["role_id", 19]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.3ms)
+UserMailer#send_signup_email: processed outbound mail in 16.7ms
+Sent mail to caro.evans.dev@gmail.com (730.3ms)
+Date: Wed, 09 May 2018 16:25:07 +1000
+From: caro.evans.dev@gmail.com
+To: caro.evans.dev@gmail.com
+Message-ID: <5af29443d377d_b5da3fd66eb9c6b4935a9@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: example.com.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 875ms (ActiveRecord: 3.4ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:17:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:26:57 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:26:57 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 89ms (Views: 59.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:27:00 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 67ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:27:04 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ongYML5UwzkESJDKQU8ZWjxoKjkFncjYjfpYJOxACB4QsdhudTTTMszgPVSlsmTryMEt7P52EwAozIPuyaMPbQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:27:04.777634"], ["updated_at", "2018-05-09 06:27:04.777634"], ["encrypted_password", "$2a$11$hgLD4OrXVXVcCmmkd/1yBuiyhAF90zmU7.AGr0Vd9WIAxjc0d8.cC"]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:27:04.795182"], ["updated_at", "2018-05-09 06:27:04.795182"]]
+  [1m[36mRole Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 43], ["id", 20], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 43]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 20[0m
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 43]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 43], ["role_id", 20]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_signup_email: processed outbound mail in 22.8ms
+Sent mail to caroline.w.evans@gmail.com (722.5ms)
+Date: Wed, 09 May 2018 16:27:04 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af294b8cd812_b5da3fd66eb9c59c9368@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>
+      To login to the site, just follow this link: example.com.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 904ms (ActiveRecord: 7.5ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:31:07 +1000
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:31:07 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 294ms (Views: 277.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:31:10 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 70ms (Views: 67.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:31:12 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZjQi0V0o5+zZFfUoTIr2WwjIGu7Z3jhzwTlX6dbyTQ/U/eKPlkj35xG9WLaod4vq/GEdOyI146tkD4wj8xFKfA==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:31:12.439045"], ["updated_at", "2018-05-09 06:31:12.439045"], ["encrypted_password", "$2a$11$wHLpe6amAhYav2FZX.VAyu9MpznZZlLQ0eIvQw/AVSIejlpiZDGeu"]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:31:12.460493"], ["updated_at", "2018-05-09 06:31:12.460493"]]
+  [1m[36mRole Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 44], ["id", 21], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 44]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 21[0m
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 44]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 44], ["role_id", 21]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.5ms)
+UserMailer#send_signup_email: processed outbound mail in 189.1ms
+Sent mail to caroline.w.evans@gmail.com (1128.3ms)
+Date: Wed, 09 May 2018 16:31:12 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af295b0d6168_b6c53fe827b4f0389052f@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1701ms (ActiveRecord: 10.8ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:32:20 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:32:21 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 54ms (Views: 39.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:32:23 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:32:25 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wCjtNmmSu/6ZjfnZbfYu8REYxEU07rz8UZGKS9piIfBy4S1oovKr9VElVEeJC1NA5bHDkM8FZyT0p1GB/4Emgw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:32:25.174797"], ["updated_at", "2018-05-09 06:32:25.174797"], ["encrypted_password", "$2a$11$qZfrX7nbj//DCNY4pYrfJONMvqFK4kvBDom655vARVon6etaX/wRO"]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT $2[0m  [["name", "author"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "roles" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "author"], ["created_at", "2018-05-09 06:32:25.189217"], ["updated_at", "2018-05-09 06:32:25.189217"]]
+  [1m[36mRole Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1 AND "roles"."id" = $2 LIMIT $3[0m  [["user_id", 45], ["id", 22], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "roles"."id" FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 45]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" = 22[0m
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = $1[0m  [["user_id", 45]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES ($1, $2)[0m  [["user_id", 45], ["role_id", 22]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.3ms)
+UserMailer#send_signup_email: processed outbound mail in 16.6ms
+Sent mail to caroline.w.evans@gmail.com (741.2ms)
+Date: Wed, 09 May 2018 16:32:25 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af295f936ce9_b6c53fe827b4efac9066a@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 913ms (ActiveRecord: 7.2ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:34:26 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:34:27 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 67ms (Views: 51.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:34:29 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 58ms (Views: 56.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:34:30 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"INGJ+N63xlg7a6Jt3js3h6mlY6wP8Tf0KgwIMz8XvaqSGEmmFdfWU/PDD/M6xko2XQxkefQa7CyPOtP5GvS62Q==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:34:31.055931"], ["updated_at", "2018-05-09 06:34:31.055931"], ["encrypted_password", "$2a$11$/NdncPI3iXFh9BIJ50xySe2Bpv4TDBbjShXQoaRTz4iIbzwS1DuR6"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_signup_email: processed outbound mail in 30.3ms
+Sent mail to caroline.w.evans@gmail.com (812.8ms)
+Date: Wed, 09 May 2018 16:34:31 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2967717053_b6c53fe827b4ee0890751@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 975ms (ActiveRecord: 1.4ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:37:46 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:37:46 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 61ms (Views: 60.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:37:49 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 60ms (Views: 59.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:37:51 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l78fi47UiMhQfeUnS+gf+BmPtuRGAcb3okoGTfvq6Loldt/VRbSYw5jVSLmvFWJJ7SaxMb3qHS8HfN2H3gnvyQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:37:51.190033"], ["updated_at", "2018-05-09 06:37:51.190033"], ["encrypted_password", "$2a$11$BH.2tnHFoMORXTeH7pdCzOvWmESrh0bWfTu2CavVzlue/nJb0ALde"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_signup_email: processed outbound mail in 28.9ms
+Sent mail to caroline.w.evans@gmail.com (797.4ms)
+Date: Wed, 09 May 2018 16:37:51 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2973f3632e_b6c53fe827b4efac90872@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 971ms (ActiveRecord: 1.8ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:40:43 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:40:43 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 111ms (Views: 101.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:40:46 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 122ms (Views: 120.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:40:48 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3Fc/jHpmfcBqTF/jHBZEKr/WzuOyh9+CG7InQ/54fm9unv/SsQZty6Lk8n346zmbS3/JNklsBFq+hPyJ25t5HA==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:40:48.908107"], ["updated_at", "2018-05-09 06:40:48.908107"], ["encrypted_password", "$2a$11$.fskIlYLHXQYHEmK1myvuunDMtq7unGixOFvx42Gq/RMYHNWITUNK"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.6ms)
+UserMailer#send_signup_email: processed outbound mail in 22.0ms
+Sent mail to caroline.w.evans@gmail.com (1233.2ms)
+Date: Wed, 09 May 2018 16:40:48 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af297f0e4869_b6c53fe827b4ef20909f4@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1422ms (ActiveRecord: 2.3ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:42:05 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:42:05 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 50ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:42:08 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 85ms (Views: 84.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:42:10 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eYnoHbs7NJXOWbTmX/67Q4lgSIb35ZkhAljx5/cfbWrLQChDcFskngbxGXi7A8byfclPUwwOQvmnbiot0vxqGQ==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:42:10.170781"], ["updated_at", "2018-05-09 06:42:10.170781"], ["encrypted_password", "$2a$11$iIVQL3SvNp44A8xgq8Bb3ucxiRzpidYPzs/ye0k9/OfcOvxWyPkZa"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.5ms)
+UserMailer#send_signup_email: processed outbound mail in 20.0ms
+Sent mail to caroline.w.evans@gmail.com (832.8ms)
+Date: Wed, 09 May 2018 16:42:10 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af298422f4b2_b6c53fe827b4efac91026@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 973ms (ActiveRecord: 1.7ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:46:44 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:46:44 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 92ms (Views: 74.0ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:46:47 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 60ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:47:57 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"blQb3bRZcglysoBVxLe0D53Eyc6d7OKQPjNNitRLgVXcnduDfzliAroaLcsgSsm+aW3OG2YHOUibBZZA8aiGJg==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:47:57.349900"], ["updated_at", "2018-05-09 06:47:57.349900"], ["encrypted_password", "$2a$11$vvX8hoTmBwfvTvw.m.Qgpuejt0F6CgHWVYuISL8wfAdWz9GS6rhqu"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (5.0ms)
+UserMailer#send_signup_email: processed outbound mail in 38.6ms
+Sent mail to caroline.w.evans@gmail.com (844.1ms)
+Date: Wed, 09 May 2018 16:47:57 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af2999d69962_b6c53fe827b4f0389114c@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1071ms (ActiveRecord: 2.7ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:48:10 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:48:10 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 74ms (Views: 73.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:48:26 +1000
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 322ms (Views: 291.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:48:29 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 87ms (Views: 84.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:48:30 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OUU8WsFfX7i+L9r2Od+oupOAdWecpZi7OQCkZ1p7uliLjPwECj9Ps3aHd2jdItULZylysmdOQ2OcNn+tf5i9Kw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:48:31.114184"], ["updated_at", "2018-05-09 06:48:31.114184"], ["encrypted_password", "$2a$11$fU667m7mDN/1r1RWP2je5uBYLsV33l5kaEjbBlVXV7gdA/OmiMl5a"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.6ms)
+UserMailer#send_signup_email: processed outbound mail in 216.3ms
+Sent mail to caroline.w.evans@gmail.com (868.7ms)
+Date: Wed, 09 May 2018 16:48:31 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af299bf8461e_b7c53fe87c5d85786268d@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1453ms (ActiveRecord: 2.8ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:49:06 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OUU8WsFfX7i+L9r2Od+oupOAdWecpZi7OQCkZ1p7uliLjPwECj9Ps3aHd2jdItULZylysmdOQ2OcNn+tf5i9Kw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:49:06.598648"], ["updated_at", "2018-05-09 06:49:06.598648"], ["encrypted_password", "$2a$11$mmg67cRU/gQK08Xa6sR28.QkuLxrPKr83aO2gJCut6eDdqGeaV5OW"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.6ms)
+UserMailer#send_signup_email: processed outbound mail in 21.6ms
+Sent mail to caroline.w.evans@gmail.com (1244.7ms)
+Date: Wed, 09 May 2018 16:49:06 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af299e2988fc_b7c53fe87c5d84ec627b@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1398ms (ActiveRecord: 1.7ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:50:40 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OUU8WsFfX7i+L9r2Od+oupOAdWecpZi7OQCkZ1p7uliLjPwECj9Ps3aHd2jdItULZylysmdOQ2OcNn+tf5i9Kw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:50:40.537922"], ["updated_at", "2018-05-09 06:50:40.537922"], ["encrypted_password", "$2a$11$0tdeT55AJf2GxTuHk7lVI..dbeoh1692O8kP602wD/LtD0UL9hZbe"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.3ms)
+UserMailer#send_signup_email: processed outbound mail in 18.6ms
+Sent mail to caroline.w.evans@gmail.com (868.4ms)
+Date: Wed, 09 May 2018 16:50:40 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af29a408a23a_b7c53fe87c5d860462837@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1026ms (ActiveRecord: 7.4ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:50:47 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:50:47 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 146ms (Views: 145.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:50:49 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 69ms (Views: 68.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:50:50 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RXMj43ACtWLftflzptkFScZmtGss7BnWGOm7tvr9C/P3uuO9u2KlaRcdVO1CJHj4Ms+zvtcHwg6932B83x4MgA==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:50:50.648474"], ["updated_at", "2018-05-09 06:50:50.648474"], ["encrypted_password", "$2a$11$XSHOYcI1HvuK61dduK/zEu0T7Ii6SUlDpBXCyoANNqZ30a0DzU9tq"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_signup_email: processed outbound mail in 20.9ms
+Sent mail to caroline.w.evans@gmail.com (796.7ms)
+Date: Wed, 09 May 2018 16:50:50 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af29a4aa3eb3_b7c53fe87c5d84ec62983@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 941ms (ActiveRecord: 1.2ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:51:25 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RXMj43ACtWLftflzptkFScZmtGss7BnWGOm7tvr9C/P3uuO9u2KlaRcdVO1CJHj4Ms+zvtcHwg6932B83x4MgA==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:51:25.470020"], ["updated_at", "2018-05-09 06:51:25.470020"], ["encrypted_password", "$2a$11$2YvgBSab2I4cOtfI3S9.f.6h5ts33XSdSWeWApahQttJDRoXpZH4m"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.3ms)
+UserMailer#send_signup_email: processed outbound mail in 20.5ms
+Sent mail to caroline.w.evans@gmail.com (1402.9ms)
+Date: Wed, 09 May 2018 16:51:25 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af29a6d79f99_b7c53fe87c5d83d4630fe@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1562ms (ActiveRecord: 4.1ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:51:29 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:51:29 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 52ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:51:31 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 85ms (Views: 83.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:51:33 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K1xdpMPR4PqcBCzfUtUmSI/taGmMmjeg16Hu8PdiHWyZlZ36CLHw8VSsgUG2KFv5e0RvvHdx7HhylzU60oEaHw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:51:33.355283"], ["updated_at", "2018-05-09 06:51:33.355283"], ["encrypted_password", "$2a$11$zfnwNxeNX7xhc4VKhIvLdeYzBMRF7oUZ1Y.ANnMHnDF5qXbESKeQG"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.7ms)
+UserMailer#send_signup_email: processed outbound mail in 27.9ms
+Sent mail to caroline.w.evans@gmail.com (918.5ms)
+Date: Wed, 09 May 2018 16:51:33 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af29a755e33a_b7c53fe87c5d86046311e@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 1079ms (ActiveRecord: 2.0ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:57:55 +1000
+Processing by ProductsController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:57:55 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 116ms (Views: 110.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-09 16:59:06 +1000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 81ms (Views: 56.6ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-09 16:59:07 +1000
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"albz/sDufKuaF0TpELRiOEN3ORZFsx2BPWTsD1AM4lDYnzOgC45soFK/6Xf0SR+Jt94+w75YxlmYUjfFde/lIw==", "user"=>{"email"=>"caroline.w.evans@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caroline.w.evans@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "caroline.w.evans@gmail.com"], ["created_at", "2018-05-09 06:59:07.986204"], ["updated_at", "2018-05-09 06:59:07.986204"], ["encrypted_password", "$2a$11$jBKQ94GKfQJEsZe/7Q6JquGE/iFbcCGQ3Rs1yUnTfeltHUYopaEuG"]]
+  Rendering user_mailer/send_signup_email.html.erb within layouts/mailer
+  Rendered user_mailer/send_signup_email.html.erb within layouts/mailer (0.4ms)
+UserMailer#send_signup_email: processed outbound mail in 19.4ms
+Sent mail to caroline.w.evans@gmail.com (813.1ms)
+Date: Wed, 09 May 2018 16:59:08 +1000
+From: caro.evans.dev@gmail.com
+To: caroline.w.evans@gmail.com
+Message-ID: <5af29c3c5521_b7c53fe87c5d83d463258@Caros-MacBook-Pro.local.mail>
+Subject: Thanks for signing up
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to Pickle Jar</h1>
+    <p>
+      You have successfully signed up to Pickle Jar!
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 977ms (ActiveRecord: 6.3ms)
+
+
+  
+EOFError (end of file reached):
+  
+app/models/user.rb:14:in `send_notification'
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:59:33 +1000
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 55ms (Views: 54.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:59:38 +1000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7oHtwIAJRDRAJmRlCQcPGgEXTcg0488yrBQaLNUvDTGz6Sq/VQ2pnP7S3U4SwAQYMiSC77li+8I6Q9HdZkmdWA==", "user"=>{"email"=>"email@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "email@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 14ms (ActiveRecord: 4.1ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7oHtwIAJRDRAJmRlCQcPGgEXTcg0488yrBQaLNUvDTGz6Sq/VQ2pnP7S3U4SwAQYMiSC77li+8I6Q9HdZkmdWA==", "user"=>{"email"=>"email@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 155ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-05-09 16:59:46 +1000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"chOxNqII5sX7aPlR6E8VSRJYMsa2NvoZH2LxQwxOnax7eNiE1cy8IanlfkimTc6/QDO4vf/PDBylCJ2Fk8KnAA==", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "email@email.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-05-09 06:59:46.742501"], ["last_sign_in_at", "2018-05-09 02:11:03.221103"], ["sign_in_count", 6], ["updated_at", "2018-05-09 06:59:46.743330"], ["id", 8]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 231ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-09 16:59:46 +1000
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mStore Load (0.3ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Store Load (0.0ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mStore Load (0.2ms)[0m  [1m[34mSELECT  "stores".* FROM "stores" WHERE "stores"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+  Rendered products/index.html.erb within layouts/application (129.8ms)
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 1]]
+Completed 200 OK in 210ms (Views: 173.1ms | ActiveRecord: 13.0ms)
+
+
