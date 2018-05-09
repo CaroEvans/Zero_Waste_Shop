@@ -8,6 +8,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  scope(:search_term, -> (search_term) { where("LOWER(email) like ?", "%#{search_term.downcase}%")})
+  after_create :send_notification
+
+  def send_notification
+      UserMailer.send_signup_email(self).deliver
+  end
 
 end
