@@ -70,3 +70,6 @@ gem "cloudinary", "~> 1.9"
 
 # Added at 2018-05-07 16:38:40 +1000 by caroevans:
 gem "stripe", "~> 3.13"
+
+# Added at 2018-05-08 20:26:13 +1000 by caroevans:
+gem "geocoder", "~> 1.4"

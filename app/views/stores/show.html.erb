@@ -12,12 +12,14 @@
     <strong>Store Owner:</strong>
     <%= @store.user.profile.full_name %>
 </p>
+<% end %>
+
 <p>
     <strong>Location:</strong>
-    <%= @store.user.profile.location.full_address %>
+    <%= @store.location.full_address %>
 </p>
 
-<% end %>
+
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>

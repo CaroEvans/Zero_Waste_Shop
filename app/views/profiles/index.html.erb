@@ -20,7 +20,6 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-
         <td><div class="image-cropper"><p id="profile"><%= image_tag profile.image_url(:thumb)%></p></div></td>
         <td><%= profile.full_name %></td>
         <td><%= profile.user.email %></td>
