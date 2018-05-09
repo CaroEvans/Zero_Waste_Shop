@@ -21,7 +21,6 @@
         <td><%= store.user.profile.full_name if store.user.profile.present? %></td>
         <td><%= store.location.full_address  if store.location.present? %></td>
         <td><%= link_to 'Show', store %></td>
-
         <td><%= link_to 'Edit', edit_store_path(store) if current_user && current_user == store.user %></td>
         <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user == store.user %></td>
       </tr>
@@ -30,7 +29,10 @@
 </table>
 
 <br>
-
-<button><%= link_to 'Create New Store', new_store_path %></button>
+<% if current_user.store.present? %>
+<button><%= link_to 'Edit Your Store', edit_store_path(current_user.store) %></button>
+<% else %>
+  <button><%= link_to 'Create New Store', new_store_path %></button>
+<% end %>
 
 </div>

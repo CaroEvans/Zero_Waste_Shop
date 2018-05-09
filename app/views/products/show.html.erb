@@ -36,6 +36,11 @@
   <%= @product.store.name %>
 </p>
 
+<p>
+  <strong>Store Location:</strong>
+  <%= @product.store.location.full_address %>
+</p>
+
 <% if current_user && current_user == @store.user %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <% end %>
