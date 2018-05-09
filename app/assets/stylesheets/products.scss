@@ -7,14 +7,18 @@ div.home-header {
   background: url(image-path("feat-img.jpg")) no-repeat center fixed;
   background-size: cover;
 }
-
-h1.home {
+.feat-txt {
   color:white;
   text-align:center;
+  font-size: 50px;
   padding: 100px;
   text-shadow: .05em .05em #000000;
+  font-family: 'Source Sans','Helvetica', sans-serif;
 }
-
+.cursive-txt {
+  font-size: 85px;
+  font-family: 'Caveat','Helvetica', sans-serif;
+}
 label {
    padding: 0.5em;
  }
