@@ -10,17 +10,18 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ @import url('https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro:400,700');
 
-@import url('https://fonts.googleapis.com/css?family=Caveat|Source+Sans+Pro:400,700');
+ @import 'variables';
+ @import 'mixins';
+ @import 'scaffolds';
+ @import 'products';
 
-#title {
-  font-family: 'Caveat','Helvetica', sans-serif;
-  font-size: 30px;
+#title-text {
+  @include feat-txt($feat-font,25px)
 }
 
-@media screen and (max-width: 500px) {
-
+.main-button {
+  @include button($main-button-colour, white, 1rem, 1rem, normal)
 }

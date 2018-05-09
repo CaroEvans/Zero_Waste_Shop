@@ -10,7 +10,6 @@
 
 <p id="notice"><%= notice %></p>
 
-
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -45,8 +44,9 @@
 <br>
 
 <%if user_signed_in? && current_user.store.present?%>
-<button><%= link_to 'New Product', new_product_path %></button>
+<%= link_to 'New Product', new_product_path %>
 <% else %>
-<button><%= link_to 'Create a Store to Post a Product', new_store_path %></button>
+<%= link_to 'Create a Store to Post a Product', new_store_path, class: "main-button" %>
 <% end %>
+
 </div>
