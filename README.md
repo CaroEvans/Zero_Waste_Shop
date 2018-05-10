@@ -65,4 +65,9 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 -----------------------
 
 ## 5. Wireframing
-![Wireframe 1](app/assets/images/IMG_0831.JPG)![Wireframe 2](app/assets/images/IMG_0832.JPG)
+![Wireframe 1](app/assets/images/IMG_0831.JPG)&nbsp;![Wireframe 2](app/assets/images/IMG_0832.JPG)
+
+-----------------------
+
+## 6. Entity Relationship Diagram
+![This is the ERD](app/assets/images/erd.png)
