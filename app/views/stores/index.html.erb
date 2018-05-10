@@ -21,8 +21,13 @@
         <td><%= store.user.profile.full_name if store.user.profile.present? %></td>
         <td><%= store.location.full_address  if store.location.present? %></td>
         <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) if current_user && current_user == store.user %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user == store.user %></td>
+        <% if store.user == current_user || user_signed_in? && current_user.has_role?(:admin)%>
+        <td><%= link_to 'Edit', edit_store_path(store) %></td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <% else %>
+        <td></td>
+        <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
