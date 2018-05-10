@@ -70,7 +70,7 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 -----------------------
 
 ## 6. Workflow Diagram
-![Workflow Diagram 1](app/assets/images/X)
+![Workflow Diagram 1](app/assets/images/workflow.png)
 
 -----------------------
 
@@ -81,23 +81,29 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 
 ## 8. List of Tools Used
 1. Github - Version control and user stories.
-2. Draw.io - ERD
-3. Postgres - Database
-4. Devise - authentication
-5. Bootstrap - styling
-6. Heroku - website domain and hosting
-7. Gmail - emails
+1. Draw.io - ERD
+1. Postgres - Database
+1. Devise - authentication
+1. Bootstrap - styling
+1. Heroku - website domain and hosting
+1. Gmail - emails
 1. Stripe - payments
 1. Cloudinary - image hosting
 1. CarrierWave - image uploading
 1. dotenv-rails - environmental variables1. geocoder - longitude latitude geocoding
 1. Google Maps - map locations
 1. Rolify - role creation
+1. Unsplash - royalty free stock photos
 
 ## 9. Bugs/Future Updates
-1. 
+1. Allow visitors to see pages without logging in or signing up - as per workflow diagram.
+1. Give buyers way to message sellers.
+1. Ensure customers set up a profile first before they can buy - so sellers always have their shipping address.
+1. Facilitate shipping and returns.
+1. Shopping cart so customers can buy more than one item at a time.
+1. Favourites/wish list.
 
-
-![This is the landing page](app/assets/images/landing.png)
-![This is the find a tutor page](app/assets/images/find_a_tutor.png)
-![This is the tutor sign up page](app/assets/images/tutor_signup.png)
+![This is the home page with products](app/assets/images/home/products.png)
+![This is the store index page](app/assets/images/store-index.png)
+![This is the store show page](app/assets/images/store-show.png)
+![This is the locations page](app/assets/images/locations.png)
