@@ -20,10 +20,13 @@
 
 ### Problem Definition
 We currently have a recycling crisis in Australia - in some towns and cities everything is now being sent to land-fill.
-An individuals we can make a difference by reducing waste as much as possible.
+An individuals we can make a difference by reducing waste as much as possible. Packaging is a big contributor to household waste. Buying products in packaging that can be reused is an easy way to reduce this.
 
 ### Solution
-My app makes it easier to reduce waste by providing a two-sided marketplace for buying and selling home-made goods in reusable or biodegradable packaging. An 'admin' user has the power to remove items if they don't fit this description.
+My app makes it easier to reduce waste by providing a two-sided marketplace for buying and selling home-made goods in eco friendly packaging. Products would be restricted to those in reusable or biodegradable packaging, with an 'admin' user removing items that don't fit this description.
+
+### Ethical Considerations
+If launching this app, I would need to consider packaging  waste from posting items - may be able to offer eco friendly parcels. I would also consider consumer laws  - customers need to be able to return things if faulty.
 
 ## 2. Installation
 1. Configure a file called .env in your local root directory with the following:
@@ -79,7 +82,14 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 
 -----------------------
 
-## 8. List of Tools Used
+## 8. Design Decisions
+
+1. Bootstrap for a clean layout.
+1. Fonts: Caveat for some feature text and Source Sans Pro for body text, both from Google Fonts.
+1. Colours: White with some green highlighting.
+1. Imagery: Feature image depicting eco-friendly products that look worn and cherished.
+
+## 9. List of Tools Used
 1. Github - Version control and user stories.
 1. Draw.io - ERD
 1. Postgres - Database
@@ -95,8 +105,11 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 1. Rolify - role creation
 1. Unsplash - royalty free stock photos
 
-## 9. Bugs/Future Updates
-1. Allow visitors to see pages without logging in or signing up - as per workflow diagram.
+## 10. Bugs
+1. Can't see any pages without logging in or signing up.
+1. Can't add a category if it isn't listed from the Products page.
+
+##11. Future Updates
 1. Give buyers way to message sellers.
 1. Ensure customers set up a profile first before they can buy - so sellers always have their shipping address.
 1. Facilitate shipping and returns.
