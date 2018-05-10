@@ -1,7 +1,5 @@
 <div class="container">
 
-<p id="notice"><%= notice %></p>
-
 <div class="image-med">
   <%= image_tag @product.image_url(:medium)%>
 </div>
@@ -42,12 +40,10 @@
   <%= @product.store.location.full_address %>
 </p>
 
-<button><%= link_to 'Back', products_path %></button>
-<br>
-<% if current_user && current_user == @store.user %>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
+<button><%= link_to 'Back', products_path %></button><% if current_user && current_user == @store.user %>
+  <button><%= link_to 'Edit', edit_product_path(@product) %></button>
 <% else %>
-<br>
+<br><br>
 <%= form_tag charges_path do %>
     <article>
       <% if flash[:error].present? %>
