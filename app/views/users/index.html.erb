@@ -22,8 +22,13 @@
         <td><%= user.profile.location.full_address if user.profile.present? %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) if user == current_user %></td>
-        <td><%= link_to 'Delete your Account?', user, method: :delete, data: {confirm: 'Are you sure?'} if user == current_user %></td>
+        <% if user == current_user || user_signed_in? && current_user.has_role?(:admin)%>
+        <td><%= link_to 'Edit', edit_user_path(user)%> </td>
+        <td><%= link_to 'Delete this Account?', user, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% else %>
+        <td></td>
+        <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
