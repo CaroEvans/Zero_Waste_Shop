@@ -69,5 +69,35 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 
 -----------------------
 
-## 6. Entity Relationship Diagram
+## 6. Workflow Diagram
+![Workflow Diagram 1](app/assets/images/X)
+
+-----------------------
+
+## 7. Entity Relationship Diagram
 ![This is the ERD](app/assets/images/erd.png)
+
+-----------------------
+
+## 8. List of Tools Used
+1. Github - Version control and user stories.
+2. Draw.io - ERD
+3. Postgres - Database
+4. Devise - authentication
+5. Bootstrap - styling
+6. Heroku - website domain and hosting
+7. Gmail - emails
+1. Stripe - payments
+1. Cloudinary - image hosting
+1. CarrierWave - image uploading
+1. dotenv-rails - environmental variables1. geocoder - longitude latitude geocoding
+1. Google Maps - map locations
+1. Rolify - role creation
+
+## 9. Bugs/Future Updates
+1. 
+
+
+![This is the landing page](app/assets/images/landing.png)
+![This is the find a tutor page](app/assets/images/find_a_tutor.png)
+![This is the tutor sign up page](app/assets/images/tutor_signup.png)
