@@ -43,12 +43,11 @@
   </tbody>
 </table>
 
-<br>
-
 <%if user_signed_in? && current_user.store.present?%>
-<%= link_to 'New Product', new_product_path %>
+<button><%= link_to 'Add New Product', new_product_path %></button>
 <% else %>
-<%= link_to 'Create a Store to Post a Product', new_store_path, class: "main-button" %>
+<button><%= link_to 'Create a Store to Post a Product', new_store_path, class: "main-button" %></button>
 <% end %>
-
+<br>
+<br>
 </div>

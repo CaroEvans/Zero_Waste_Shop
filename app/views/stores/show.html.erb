@@ -2,16 +2,52 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @store.name %>
-</p>
+</h1>
 
 <% if @store.user.profile.present? %>
 <p>
-    <strong>Store Owner:</strong>
+    <strong>Owner:</strong>
     <%= @store.user.profile.full_name %>
 </p>
+<% end %>
+
+<h3>Products available</h3>
+
+<% if @store.products.present? %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Stock level</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Store</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @store.products.each do |product| %>
+      <tr>
+        <td><%= image_tag product.image_url(:thumb) %></td>
+        <td><%= product.name %></td>
+        <td>$<%= product.price %></td>
+        <td><%= product.stock_level %></td>
+        <td><%= product.description %></td>
+        <td><%= product.category.name %></td>
+        <td><%= product.store.name %></td>
+        <td><%= link_to 'Show', product %></td>
+        <% if product.store.user == current_user || user_signed_in? && current_user.has_role?(:admin)%>
+        <td><%= link_to 'Edit', edit_product_path(product)%></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
 
 <p>
@@ -25,6 +61,8 @@
   frameborder="0" style="border:0"
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDURAe9ccbX3ImKBQj-6z3-fDJug0aV1lE&q=<%=@store.location.full_address%>}" allowfullscreen>
 </iframe><br>
+
+
 
 <button><%= link_to 'Edit', edit_store_path(@store) %></button>
 <button><%= link_to 'Back', stores_path %></button>
