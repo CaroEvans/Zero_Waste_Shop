@@ -1,12 +1,11 @@
 class ChargesController < ApplicationController
-  before_action :set_item
-
+  
   def new
     @amount = @product.price
   end
 
   def create
-
+    @product = Product.find(params[:product_id])
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -25,9 +24,5 @@ class ChargesController < ApplicationController
     flash[:error] = "An error occured"
   end
 
-  private
-  def set_item
-  @product = Product.find(params[:id])
-  end
 
 end

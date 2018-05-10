@@ -48,6 +48,7 @@
 
 <%= link_to 'Back', products_path %>
 
+
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -56,7 +57,7 @@
       </div>
     <% end %>
   </article>
-
+  <%= hidden_field_tag :product_id, @product.id %>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="<%= @product.name %>"
