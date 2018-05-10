@@ -103,7 +103,7 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 1. Shopping cart so customers can buy more than one item at a time.
 1. Favourites/wish list.
 
-![This is the home page with products](app/assets/images/home/products.png)
+![This is the home page with products](app/assets/images/home-products.png)
 ![This is the store index page](app/assets/images/store-index.png)
 ![This is the store show page](app/assets/images/store-show.png)
 ![This is the locations page](app/assets/images/locations.png)
