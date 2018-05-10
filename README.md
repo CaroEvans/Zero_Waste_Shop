@@ -16,9 +16,53 @@
 [Link to Pickle Jar on GitHub](github.com/CaroEvans/Zero_Waste_Shop)
 
 
-# Pickle Jar
+## 1. Summary
 
-In response to Australia's current recycling crisis, I'm developing an app for buying and selling home-made goods, specifically condiments in reusable or biodegradable packaging.
+### Problem Definition
+We currently have a recycling crisis in Australia - in some towns and cities everything is now being sent to land-fill.
+An individuals we can make a difference by reducing waste as much as possible.
 
-[Link to Pickle Jar on Heroku](pickle-jar.herokuapp.com)
-[Link to Pickle Jar on GitHub](github.com/CaroEvans/Zero_Waste_Shop)
+### Solution
+My app makes it easier to reduce waste by providing a two-sided marketplace for buying and selling home-made goods in reusable or biodegradable packaging. An 'admin' user has the power to remove items if they don't fit this description.
+
+## 2. Installation
+1. Configure a file called .env in your local root directory with the following:
+* POSTGRES_PASSWORD=[INSERT HERE]
+* PUBLISHABLE_KEY=[INSERT HERE]
+* SECRET_KEY=[INSERT HERE]
+* GMAIL_USERNAME=[INSERT HERE]
+* GMAIL_PASSWORD=[INSERT HERE]
+1. If pushing to a public site add .env to your .gitignore file
+1. Clone the repo and move into the directory.
+2. Run `bundle install` in your CLI.
+3. Run `rails db:migrate` your CLI.
+
+## 3. Requirements
+
+1.Create your application using Ruby on Rails.
+
+1.Demonstrate knowledge of Rails conventions.
+
+1.Use postgresql database in development.
+
+1.Use an API (e.g. Omniauth, Geocoding, Maps, etc).
+
+1.Use appropriate gems.
+
+1.Use environmental variables to protect API keys etc. (dotenv)
+
+1.Implement a payment system for your product. (e.g. Stripe)
+
+1.Your app must send transactional emails (eg. using Mailgun).
+
+1.Your app will have authorisation (users have restrictions on what they can see and edit).
+
+-----------------------
+
+## 4. User Stories
+![User stories for the whole application.](app/assets/images/user-stories.png)
+
+-----------------------
+
+## 5. Wireframing
+![Wireframe 1](app/assets/images/IMG_0831.jpg)![Wireframe 2](app/assets/images/IMG_0832.jpg)
