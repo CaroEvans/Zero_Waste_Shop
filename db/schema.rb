@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507051331) do
+ActiveRecord::Schema.define(version: 20180509022857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20180507051331) do
     t.string "post_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "products", force: :cascade do |t|
@@ -80,6 +82,8 @@ ActiveRecord::Schema.define(version: 20180507051331) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_stores_on_location_id"
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
@@ -117,5 +121,6 @@ ActiveRecord::Schema.define(version: 20180507051331) do
   add_foreign_key "products", "stores"
   add_foreign_key "profiles", "locations"
   add_foreign_key "profiles", "users"
+  add_foreign_key "stores", "locations"
   add_foreign_key "stores", "users"
 end
