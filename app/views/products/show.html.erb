@@ -41,28 +41,27 @@
   <%= @product.store.location.full_address %>
 </p>
 
-<% if current_user && current_user == @store.user %>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<% end %>
-
-
 <%= link_to 'Back', products_path %>
 
 
+<% if current_user && current_user == @store.user %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+<% else %>
 <%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-  </article>
-  <%= hidden_field_tag :product_id, @product.id %>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="<%= @product.name %>"
-          data-amount="<%= @product.price * 100 %>"
-          data-locale="auto"></script>
-<% end %>
-
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+    </article>
+    <%= hidden_field_tag :product_id, @product.id %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @product.name %>"
+            data-amount="<%= @product.price * 100 %>"
+            data-locale="auto"></script>
+  <% end %>
 </div>
+
+<% end %>
