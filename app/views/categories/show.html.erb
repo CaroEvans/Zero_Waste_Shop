@@ -22,15 +22,15 @@
   </thead>
   <tbody>
     <% @category.products.each do |product| %>
-    <tr>
-      <td><%= image_tag product.image_url(:thumb) %></td>
-      <td><%= product.name %></td>
-      <td>$<%= product.price %></td>
-      <td><%= product.stock_level %></td>
-      <td><%= product.description %></td>
-      <td><%= product.category.name %></td>
-      <td><%= product.store.name %></td>
-      <td><%= link_to 'Show', product %></td>
+      <tr>
+        <td><%= image_tag product.image_url(:thumb) %></td>
+        <td><%= product.name %></td>
+        <td>$<%= product.price %></td>
+        <td><%= product.stock_level %></td>
+        <td><%= product.description %></td>
+        <td><%= product.category.name %></td>
+        <td><%= product.store.name %></td>
+        <td><%= link_to 'Show', product %></td>
         <% if product.store.user == current_user || user_signed_in? && current_user.has_role?(:admin)%>
         <td><%= link_to 'Edit', edit_product_path(product)%></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }%></td>
@@ -43,7 +43,7 @@
 <p>There are no products in this category yet.</p>
 <% end %>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<button><%= link_to 'Edit', edit_category_path(@category) if user_signed_in? && current_user.has_role?(:admin)%></button>
+<button><%= link_to 'Back', categories_path %></button>
 
 </div>
