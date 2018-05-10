@@ -39,23 +39,23 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 
 ## 3. Requirements
 
-1.Create your application using Ruby on Rails.
+1. Create your application using Ruby on Rails.
 
-1.Demonstrate knowledge of Rails conventions.
+1. Demonstrate knowledge of Rails conventions.
 
-1.Use postgresql database in development.
+1. Use postgresql database in development.
 
-1.Use an API (e.g. Omniauth, Geocoding, Maps, etc).
+1. Use an API (e.g. Omniauth, Geocoding, Maps, etc).
 
-1.Use appropriate gems.
+1. Use appropriate gems.
 
-1.Use environmental variables to protect API keys etc. (dotenv)
+1. Use environmental variables to protect API keys etc. (dotenv)
 
-1.Implement a payment system for your product. (e.g. Stripe)
+1. Implement a payment system for your product. (e.g. Stripe)
 
-1.Your app must send transactional emails (eg. using Mailgun).
+1. Your app must send transactional emails (eg. using Mailgun).
 
-1.Your app will have authorisation (users have restrictions on what they can see and edit).
+1. Your app will have authorisation (users have restrictions on what they can see and edit).
 
 -----------------------
 
@@ -65,4 +65,4 @@ My app makes it easier to reduce waste by providing a two-sided marketplace for 
 -----------------------
 
 ## 5. Wireframing
-![Wireframe 1](app/assets/images/IMG_0831.jpg)![Wireframe 2](app/assets/images/IMG_0832.jpg)
+![Wireframe 1](app/assets/images/IMG_0831.JPG)![Wireframe 2](app/assets/images/IMG_0832.JPG)
