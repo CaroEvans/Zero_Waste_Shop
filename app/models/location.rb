@@ -3,7 +3,7 @@ class Location < ApplicationRecord
   has_many :profiles
 
   validates :city, :state, :country, :post_code, presence: true
-  validates_uniquenss_of :city
+  validates_uniqueness_of :city
 
   geocoded_by :full_address
   after_validation :geocode
