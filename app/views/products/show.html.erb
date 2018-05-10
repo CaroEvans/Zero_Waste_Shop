@@ -15,11 +15,12 @@
   $<%= @product.price %>
 </p>
 
+<% if current_user == @store.user %>
 <p>
   <strong>Stock level:</strong>
   <%= @product.stock_level %>
 </p>
-
+<% end %>
 <p>
   <strong>Description:</strong>
   <%= @product.description %>
