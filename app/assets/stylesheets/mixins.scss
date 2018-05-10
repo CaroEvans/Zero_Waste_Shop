@@ -1,0 +1,15 @@
+@mixin button($bgcolour, $textcolour, $padding, $font-size, $weight) {
+  background-color: $bgcolour;
+  color: $textcolour;
+  border: none;
+  padding: $padding;
+  font-size: $font-size;
+  font-weight: $weight;
+  &:hover {
+    color: darken($bgcolour, 10%);
+  }
+}
+@mixin feat-txt($typeface, $text-size){
+  font-family: $typeface;
+  font-size: $text-size;
+}

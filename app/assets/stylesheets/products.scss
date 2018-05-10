@@ -2,19 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main-button {
+  @include button($main-button-colour, white, 1rem, 1rem, normal)
+}
+
 div.home-header {
   height: 100vh;
   background: url(image-path("feat-img.jpg")) no-repeat center fixed;
   background-size: cover;
 }
-
-h1.home {
+.feat-txt {
   color:white;
   text-align:center;
+  font-size: 50px;
   padding: 100px;
   text-shadow: .05em .05em #000000;
+  font-family: 'Source Sans','Helvetica', sans-serif;
 }
-
+.cursive-txt {
+  font-size: 85px;
+  font-family: 'Caveat','Helvetica', sans-serif;
+}
 label {
    padding: 0.5em;
  }
