@@ -26,7 +26,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= image_tag product.image_url(:thumb) %></td>
+        <td><div class="image-cropper"><%= image_tag product.image_url(:thumb)%></div></td>
         <td><%= product.name %></td>
         <td>$<%= product.price %></td>
         <td><%= product.stock_level %></td>

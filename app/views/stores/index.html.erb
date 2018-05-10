@@ -33,11 +33,10 @@
   </tbody>
 </table>
 
-<br>
 <% if current_user.store.present? %>
 <button><%= link_to 'Edit Your Store', edit_store_path(current_user.store) %></button>
 <% else %>
-  <button><%= link_to 'Create New Store', new_store_path %></button>
+<button><%= link_to 'Create New Store', new_store_path %></button>
 <% end %>
 
 </div>
