@@ -2,15 +2,17 @@
 # Overview
 
 1. Summary
-2. Installation
-3. Requirements
-4. User Stories
-5. Wireframing
-6. Workflow Diagram
-7. Entity Relationship Diagram
-8. List of Tools Used
-9. Project Plan
-10. Future Updates
+1. Installation
+1. Requirements
+1. User Stories
+1. Wire frames
+1. Workflow Diagram
+1. Entity Relationship Diagram
+1. Design Decisions
+1. List of Tools Used
+1. Bugs
+1. Future Updates
+1. Screenshots of Site
 
 [Link to Pickle Jar on Heroku](pickle-jar.herokuapp.com)  
 [Link to Pickle Jar on GitHub](github.com/CaroEvans/Zero_Waste_Shop)
@@ -67,7 +69,7 @@ If launching this app, I would need to consider packaging  waste from posting 
 
 -----------------------
 
-## 5. Wireframing
+## 5. Wire frames
 ![Wireframe 1](app/assets/images/IMG_0831.JPG)&nbsp;![Wireframe 2](app/assets/images/IMG_0832.JPG)
 
 -----------------------
@@ -116,7 +118,7 @@ If launching this app, I would need to consider packaging  waste from posting 
 1. Shopping cart so customers can buy more than one item at a time.
 1. Favourites/wish list.
 
-## 12. Screenshots of site
+## 12. Screenshots of Site
 
 ![This is the home page with products](app/assets/images/home-products.png)
 ![This is the store index page](app/assets/images/store-index.png)
