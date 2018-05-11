@@ -116,6 +116,8 @@ If launching this app, I would need to consider packaging  waste from posting 
 1. Shopping cart so customers can buy more than one item at a time.
 1. Favourites/wish list.
 
+## 12. Screenshots of site
+
 ![This is the home page with products](app/assets/images/home-products.png)
 ![This is the store index page](app/assets/images/store-index.png)
 ![This is the store show page](app/assets/images/store-show.png)
