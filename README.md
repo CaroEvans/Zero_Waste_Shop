@@ -109,7 +109,7 @@ If launching this app, I would need to consider packaging  waste from posting 
 1. Can't see any pages without logging in or signing up.
 1. Can't add a category if it isn't listed from the Products page.
 
-##11. Future Updates
+## 11. Future Updates
 1. Give buyers way to message sellers.
 1. Ensure customers set up a profile first before they can buy - so sellers always have their shipping address.
 1. Facilitate shipping and returns.
